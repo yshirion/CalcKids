@@ -101,7 +101,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#595757"
             android:text="Sign In"
-            android:textColor="#F8F5F5" />
+            android:textColor="#F8F5F5"
+            android:onClick="onClick"/>
 
     </LinearLayout>
 

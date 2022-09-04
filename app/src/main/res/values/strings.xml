@@ -5,4 +5,18 @@
     <string name="previous">Previous</string>
     <string name="required">*this field requierd</string>
     <string name="title_activity_register">Register</string>
+    <string name="title_activity_open_screen_parent">Open_Screen_Parent</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="message">MESSAGES</string>
+    <string name="mission">MISSIONS</string>
+    <string name="request">REQUESTS</string>
+    <string name="balance">BALANCE</string>
+    <string name="loan">LOANS</string>
+    <string name="invest">INVESTMENTS</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

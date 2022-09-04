@@ -14,6 +14,14 @@
         android:theme="@style/Theme.CalacKids"
         tools:targetApi="31">
         <activity
+            android:name=".ParentMenu"
+            android:exported="false"
+            android:label="@string/title_activity_open_screen_parent"
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
+        <activity
+            android:name=".ChildMenu"
+            android:exported="false" />
+        <activity
             android:name=".Register_family"
             android:exported="false" />
         <activity
