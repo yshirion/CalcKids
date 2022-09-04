@@ -14,6 +14,17 @@
         android:theme="@style/Theme.CalacKids"
         tools:targetApi="31">
         <activity
+            android:name=".Investments"
+            android:exported="false" />
+        <activity
+            android:name=".Loans"
+            android:exported="false" />
+        <activity
+            android:name=".balance"
+            android:exported="false"
+            android:label="@string/title_activity_balance"
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
+        <activity
             android:name=".ParentMenu"
             android:exported="false"
             android:label="@string/title_activity_open_screen_parent"

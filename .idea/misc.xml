@@ -5,11 +5,16 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.16247002398081534" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.185" />
+        <entry key="app/src/main/res/drawable/bg_general.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.185" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.271" />
         <entry key="app/src/main/res/layout-land/activity_register.xml" value="0.44947916666666665" />
+        <entry key="app/src/main/res/layout/activity_balance.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_investments.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_loans.xml" value="0.26849080803762293" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main1.xml" value="0.424812030075188" />
+        <entry key="app/src/main/res/layout/activity_menu_child.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_child.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_parent.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
