@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.activities.ChildMenu;
 import com.example.calackids.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.widget.Button;

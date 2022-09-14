@@ -14,7 +14,7 @@
         <entry key="app/src/main/res/layout/activity_loans.xml" value="0.26849080803762293" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main1.xml" value="0.424812030075188" />
-        <entry key="app/src/main/res/layout/activity_menu_child.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_menu_child.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_open_screen_child.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_parent.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/content_open_screen_parent.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/content_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/fragment_first2.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.3411458333333333" />
       </map>

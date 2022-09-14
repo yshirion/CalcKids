@@ -1,14 +1,5 @@
 package com.example.calackids;
 
-import android.content.Context;
-import android.graphics.drawable.Icon;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import androidx.cardview.widget.CardView;
 
 public class Card {
     private String card_text;

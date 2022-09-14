@@ -1,4 +1,4 @@
-package com.example.calackids;
+package com.example.objects;
 
 import java.util.UUID;
 
@@ -27,5 +27,31 @@ public class User {
         parent = true;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public UUID getFamilyId() {
+        return familyId;
+    }
+
+    public boolean isParent() {
+        return parent;
+    }
 }

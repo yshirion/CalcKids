@@ -1,7 +1,8 @@
-package com.example.calackids;
+package com.example.activities;
 
 import android.os.Bundle;
 
+import com.example.calackids.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;

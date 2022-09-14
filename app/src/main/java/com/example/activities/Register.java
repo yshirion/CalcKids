@@ -1,14 +1,16 @@
-package com.example.calackids;
+package com.example.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Register_family extends AppCompatActivity {
+import com.example.calackids.R;
+
+public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_family);
+        setContentView(R.layout.activity_register);
     }
 }

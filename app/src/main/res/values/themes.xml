@@ -22,4 +22,10 @@
     <style name="Theme.CalacKids.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CalacKids.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppDialogTheme" parent="@style/Theme.AppCompat">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

@@ -1,7 +1,9 @@
-package com.example.calackids;
+package com.example.activities;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.calackids.R;
 
 public class ParentMenu extends AppCompatActivity {
 

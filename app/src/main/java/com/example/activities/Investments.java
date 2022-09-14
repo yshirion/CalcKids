@@ -1,14 +1,16 @@
-package com.example.calackids;
+package com.example.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Loans extends AppCompatActivity {
+import com.example.calackids.R;
+
+public class Investments extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loans);
+        setContentView(R.layout.activity_investments);
     }
 }
