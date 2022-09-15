@@ -1,30 +1,72 @@
 package com.example.objects;
 
-import java.util.UUID;
-
 public class User {
-    String firstName,lastName, userName, password;
-    UUID id, familyId;
+    Long id;
+    String firstName;
+    String lastName;
+    String userName;
+    String password;
+    Long familyId;
     boolean parent;
+    double balance;
 
-    public User(String first, String last, String user, String _password, UUID family){
-        firstName = first;
-        lastName = last;
-        userName = user;
-        password = _password;
-        familyId = family;
-        parent = false;
+    public User(Long id, String firstName, String lastName, String userName, String password, Long familyId, boolean parent, double balance) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.familyId = familyId;
+        this.parent = parent;
+        this.balance = balance;
     }
-    public User(String user, String _password){
-        userName = user;
-        password = _password;
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
-    public User(String first, String last, String user, String _password){
-        firstName = first;
-        lastName = last;
-        userName = user;
-        password = _password;
-        parent = true;
+
+    public User(String firstName, String lastName, String userName, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFamilyId(Long familyId) {
+        this.familyId = familyId;
+    }
+
+    public void setParent(boolean parent) {
+        this.parent = parent;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public String getFirstName() {
@@ -43,11 +85,11 @@ public class User {
         return password;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public UUID getFamilyId() {
+    public Long getFamilyId() {
         return familyId;
     }
 

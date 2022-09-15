@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
+        android:name=".CalacKidsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,7 +24,7 @@
             android:name="com.example.activities.Loans"
             android:exported="false" />
         <activity
-            android:name="com.example.activities.balance"
+            android:name="com.example.activities.Balance"
             android:exported="false"
             android:label="@string/title_activity_balance"
             android:theme="@style/Theme.CalacKids.NoActionBar" />

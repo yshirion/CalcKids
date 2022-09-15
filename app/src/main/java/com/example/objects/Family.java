@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class Family {
     String name;
-    UUID fId;
+    int fId;
     double loanInterest, investLongInterest, investShortInterest;
 
-    public Family(String name, UUID fId) {
+    public Family(String name, int fId) {
         this.name = name;
         this.fId = fId;
         loanInterest = 0.01;

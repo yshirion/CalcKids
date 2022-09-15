@@ -16,7 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.calackids.databinding.ActivityBalanceBinding;
 
-public class balance extends AppCompatActivity {
+public class Balance extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityBalanceBinding binding;

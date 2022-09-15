@@ -2,6 +2,7 @@ package com.example.objects;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 public class Invest extends Action {
     private final int SHORT = 6;
@@ -11,7 +12,7 @@ public class Invest extends Action {
     boolean longTerm;
 
 
-    public Invest(User user, double amount, Date date, boolean longT){
+    public Invest(UUID user, double amount, Date date, boolean longT){
         super(false,"invest",amount,date,user);
         longTerm = longT;
         Calendar cal = Calendar.getInstance();

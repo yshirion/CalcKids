@@ -13,16 +13,17 @@ import java.util.ArrayList;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHolder> {
     private ArrayList<Card> mExampleList;
 
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;
-        public TextView mTextView2;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.img);
             mTextView1 = itemView.findViewById(R.id.text);
         }
+
     }
 
     public CardAdapter(ArrayList<Card> exampleList) {
@@ -31,7 +32,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
 
     @Override
     public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_menu_child, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardl, parent, false);
         ExampleViewHolder evh = new ExampleViewHolder(v);
         return evh;
     }
@@ -42,6 +43,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
 
         holder.mImageView.setImageResource(currentItem.getImage_id());
         holder.mTextView1.setText(currentItem.getCard_text());
+        holder.itemView.setTag(currentItem.activity);
+
+
     }
 
     @Override
