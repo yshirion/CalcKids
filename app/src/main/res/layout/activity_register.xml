@@ -9,12 +9,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="375dp"
-        android:layout_height="401dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="200dp"
         android:orientation="vertical"
 
         app:layout_constraintBottom_toBottomOf="@id/submit"
@@ -28,7 +28,6 @@
         <!--            android:layout_height="30dp" />-->
 
         <com.google.android.material.textfield.TextInputLayout
-
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:errorEnabled="true">
@@ -39,11 +38,12 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
                 android:hint="First name" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="15dp" />
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -56,12 +56,13 @@
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
                 android:hint="User name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="15dp" />
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -73,15 +74,15 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
                 android:hint="Password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="15dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:errorEnabled="true">
@@ -90,27 +91,43 @@
                 android:id="@+id/conf_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="confirm password" />
+                android:background="@drawable/rounded_corners"
+                android:hint="Confirm password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="15dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-
             android:layout_width="match_parent"
             android:layout_height="56dp"
-
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/family_id_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="family ID" />
+                android:background="@drawable/rounded_corners"
+                android:hint="Family ID" />
         </com.google.android.material.textfield.TextInputLayout>
-        <!--        android:layout_margin="10dp"-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/family_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:hint="Family name" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button

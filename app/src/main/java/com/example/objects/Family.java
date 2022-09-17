@@ -6,13 +6,14 @@ public class Family {
     String name;
     int fId;
     double loanInterest, investLongInterest, investShortInterest;
+    double MIN_INTEREST = 0.1;
 
     public Family(String name, int fId) {
         this.name = name;
         this.fId = fId;
-        loanInterest = 0.01;
-        investLongInterest = 0.01;
-        investShortInterest = 0.005;
+        loanInterest = MIN_INTEREST;
+        investLongInterest = MIN_INTEREST;
+        investShortInterest = MIN_INTEREST;
     }
 
     public void setLoanInterest(double loanInterest) throws Exception {

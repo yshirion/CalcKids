@@ -1,48 +1,73 @@
 package com.example.objects;
 
 public class User {
-    Long id;
-    String firstName;
-    String lastName;
-    String userName;
+    long id;
+    String first_name;
+    String last_name;
+    String user_name;
     String password;
-    Long familyId;
+    long family_id;
     boolean parent;
     double balance;
 
-    public User(Long id, String firstName, String lastName, String userName, String password, Long familyId, boolean parent, double balance) {
+    public User(Long id, String firstName, String lastName, String userName, String password, Long family_id, boolean parent, double balance) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
+        this.first_name = firstName;
+        this.last_name = lastName;
+        this.user_name = userName;
         this.password = password;
-        this.familyId = familyId;
+        this.family_id = family_id;
         this.parent = parent;
         this.balance = balance;
     }
 
+    //Constructor for log in.
     public User(String userName, String password) {
-        this.userName = userName;
+        this.user_name = userName;
         this.password = password;
+        id = 0;
+        first_name = null;
+        last_name = null;
+        family_id = 0;
+        balance = 0;
+        parent = false;
     }
 
-    public User(String firstName, String lastName, String userName, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
+    //Constructor for registration of family
+    public User(String first_name, String last_name, String user_name, String password) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.user_name = user_name;
         this.password = password;
+        id = 0;
+        family_id = 0;
+        parent = true;
+
+
+
+    }
+
+    //Constructor for registration of user
+    public User(String firstName, String userName, String password, String last_name, long family_id) {
+        this.first_name = firstName;
+        this.family_id = family_id;
+        this.user_name = userName;
+        this.password = password;
+        this.last_name = last_name;
+        id = 0;
+        parent = false;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first_name = firstName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public void setPassword(String password) {
@@ -53,8 +78,8 @@ public class User {
         this.id = id;
     }
 
-    public void setFamilyId(Long familyId) {
-        this.familyId = familyId;
+    public void setFamily_id(Long family_id) {
+        this.family_id = family_id;
     }
 
     public void setParent(boolean parent) {
@@ -70,15 +95,15 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser_name() {
+        return user_name;
     }
 
     public String getPassword() {
@@ -89,8 +114,8 @@ public class User {
         return id;
     }
 
-    public Long getFamilyId() {
-        return familyId;
+    public Long getFamily_id() {
+        return family_id;
     }
 
     public boolean isParent() {

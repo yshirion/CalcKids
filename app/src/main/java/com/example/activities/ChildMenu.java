@@ -1,55 +1,38 @@
-//package com.example.calackids;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.os.Bundle;
-//
-//
-//public class ChildMenu extends AppCompatActivity {
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_menu_child);
-//
-//        }
-//
-//    }
-//
 package com.example.activities;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.calackids.CalcKidsApplication;
 import com.example.calackids.Card;
 import com.example.calackids.CardAdapter;
 import com.example.calackids.R;
-import com.example.calackids.CalacKidsApplication;
-import com.example.objects.User;
 
 
 public class ChildMenu extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TextView title;
+    CalcKidsApplication app = (CalcKidsApplication) getApplication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_child);
+        title = findViewById(R.id.userTitle);
+        title.setText(setUserTitle());
 
         ArrayList<Card> cardsList = new ArrayList<Card>();
 
@@ -68,19 +51,19 @@ public class ChildMenu extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.setAdapter(mAdapter);
 
-        User currentUser = ((CalacKidsApplication) getApplication()).currentUser;
-        Toast.makeText(
-                getApplicationContext(),
-                "Hello " + currentUser.getFirstName() + " " + currentUser.getLastName(),
-                Toast.LENGTH_SHORT).show();
-
-        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                // nothing
-            }
-        });
     }
+
+    private String setUserTitle() {
+        String child;
+        String parent = "";
+        child = app.currentChildUser.getUser_name() + " id: " + app.currentChildUser.getId()
+                + " Fid: " +app.currentChildUser.getFamily_id();
+        if (app.currentParentUser != null) parent = ". by " + app.currentParentUser.getUser_name();
+
+        return child + parent + ".";
+    }
+
+
     public void onClick(View view){
         CardView c = (CardView) view;
         Intent intent = new Intent(this, (Class<?>) c.getTag());

@@ -9,12 +9,14 @@ import com.example.retrofit.UserService;
 
 import retrofit2.Retrofit;
 
-public class CalacKidsApplication extends Application {
+public class CalcKidsApplication extends Application {
     private final Retrofit retrofit = new RetrofitService().getRetrofit();
 
     public final UserService userService = retrofit.create(UserService.class);
     public final FamilyService familyService = retrofit.create(FamilyService.class);
 
 
-    public User currentUser;
+    public User currentChildUser;
+    public User currentParentUser;
+    
 }
