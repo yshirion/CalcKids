@@ -10,11 +10,14 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
 
+    <!--    messages for user-->
     <string name="networkerror">Error: There is network problem.</string>
     <string name="fillAll">Please fill all fields.</string>
     <string name="erroruserpass">Either user name or password invalid.</string>
     <string name="familyidnum">Family id need to be an number</string>
     <string name="passwordmtach">The passwords not match.</string>
+
+    <!--    Strings for menu-->
     <string name="loggupsuccess">The log up was successful!</string>
     <string name="message">MESSAGES</string>
     <string name="mission">MISSIONS</string>
@@ -22,6 +25,16 @@
     <string name="balance">BALANCE</string>
     <string name="loan">LOANS</string>
     <string name="invest">INVESTMENTS</string>
+    <string name="createinvest">CREATE INVEST</string>
+    <string name="createloan">CREATE LOAN</string>
+    <string name="send">SEND</string>
+    <string name="settings">SETTINGS</string>
+
+<!--    strings for settings-->
+    <string name="title_settings">SET PERCENTS</string>
+    <string name="loan_interest_title">Percent of loan interest:  </string>
+    <string name="long_interest_title">Percent of long investment:  </string>
+    <string name="short_interest_title">Percent of short investment:  </string>
 
     <string name="private_balance">Current balance</string>
     <string name="loans_title">Loans current state:</string>
@@ -30,4 +43,8 @@
     <string name="title_activity_balance">balance</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="user_name">User name</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

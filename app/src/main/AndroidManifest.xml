@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.calackids">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".CalcKidsApplication"
@@ -13,11 +13,20 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalacKids"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name="com.example.activities.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.activities.Messages"
+            android:exported="false" />
+        <activity
+            android:name="com.example.activities.BlankforWhile"
+            android:exported="false" />
         <activity
             android:name="com.example.activities.Investments"
             android:exported="false" />
@@ -28,27 +37,27 @@
             android:name="com.example.activities.Balance"
             android:exported="false"
             android:label="@string/title_activity_balance"
-            android:theme="@style/Theme.CalcKids.NoActionBar" />
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
         <activity
             android:name="com.example.activities.ParentMenu"
             android:exported="false"
             android:label="@string/title_activity_open_screen_parent"
-            android:theme="@style/Theme.CalcKids.NoActionBar" />
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
         <activity
             android:name="com.example.activities.ChildMenu"
-            android:theme="@style/Theme.CalcKids.NoActionBar"
-            android:exported="true" />
+            android:exported="false"
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
         <activity
             android:name="com.example.activities.Register_family"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.CalacKids.NoActionBar" />
         <activity
             android:name="com.example.activities.Register"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.CalcKids.NoActionBar">
+            android:theme="@style/Theme.CalacKids.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,9 @@ package com.example.retrofit;
 
 import com.example.objects.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -13,6 +16,9 @@ public interface UserService {
 
     @GET("user/{id}")
     Call<User> getById(@Path("id") String userId);
+
+    @GET("user/family/{id}")
+    Call<List<User>> findByFamily(@Path("id") long family_id);
 
     @GET("user/check/{name}/{password}")
     Call<User> checkUser(@Path("name") String name, @Path("password") String password);

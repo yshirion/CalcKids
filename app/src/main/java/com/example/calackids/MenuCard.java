@@ -1,22 +1,23 @@
 package com.example.calackids;
 
 
-public class Card {
-    private int card_text;
+public class MenuCard {
+    private String card_text;
     private int image_id;
     public Class<?> activity;
 
-    public Card(int textId, int imageId, Class<?> activity){
+
+    public MenuCard(String textId, int imageId, Class<?> activity){
         card_text = textId;
         image_id = imageId;
         this.activity = activity;
     }
 
-    public int getCard_text() {
+    public String getCard_text() {
         return card_text;
     }
 
-    public void setCard_text(int card_text) {
+    public void setCard_text(String card_text) {
         this.card_text = card_text;
     }
 
@@ -28,13 +29,13 @@ public class Card {
         this.image_id = image_id;
     }
 
-//    public Class<?> getActivity_id() {
-//        return activity_id;
-//    }
-//
-//    public void setActivity_id(int activity_id) {
-//        this.activity_id = activity_id;
-//    }
+    public Class<?> getActivity() {
+        return activity;
+    }
+
+    public void setActivity_id(Class<?> activity) {
+        this.activity = activity;
+    }
     //    private void setNewCard(){
 //        newCard.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 ////        newCard.setMinimumWidth(180);

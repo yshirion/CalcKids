@@ -16,14 +16,20 @@
         <entry key="app/src/main/res/layout/activity_main1.xml" value="0.424812030075188" />
         <entry key="app/src/main/res/layout/activity_menu_child.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_menu_parent.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_messages.xml" value="0.26849080803762293" />
+        <entry key="app/src/main/res/layout/activity_missions.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_child.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_parent.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_family.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_requests.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.335" />
         <entry key="app/src/main/res/layout/card_view.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/cardl.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.14749893116716545" />
         <entry key="app/src/main/res/layout/content_open_screen_parent.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/content_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/content_settings.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/fragment_first2.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.28003420265070544" />
@@ -31,7 +37,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

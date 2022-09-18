@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHolder> {
-    private ArrayList<Card> mExampleList;
+    private ArrayList<MenuCard> mExampleList;
 
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -26,24 +26,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
 
     }
 
-    public CardAdapter(ArrayList<Card> exampleList) {
+    public CardAdapter(ArrayList<MenuCard> exampleList) {
         mExampleList = exampleList;
     }
 
     @Override
     public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardl, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_card_layout, parent, false);
         ExampleViewHolder evh = new ExampleViewHolder(v);
         return evh;
     }
 
     @Override
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        Card currentItem = mExampleList.get(position);
+        MenuCard currentItem = mExampleList.get(position);
 
         holder.mImageView.setImageResource(currentItem.getImage_id());
         holder.mTextView1.setText(currentItem.getCard_text());
-        holder.itemView.setTag(currentItem.activity);
+        holder.itemView.setTag(currentItem);
 
 
     }

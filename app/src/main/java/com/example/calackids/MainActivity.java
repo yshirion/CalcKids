@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button signIn;
     private EditText userBox, passwordBox;
     private String message ="";
-    CalcKidsApplication app = (CalcKidsApplication) getApplication();
+    CalcKidsApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ifUserExist(String userName, String password) {
+        app = (CalcKidsApplication) getApplication();
         app.userService
                 .checkUser(userName,password)
                 .enqueue(new Callback<User>() {
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                              + " " + response.body().getLast_name();
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
+                    userBox.setText("");
+                    passwordBox.setText("");
                     Intent intent = new Intent(MainActivity.this, activity);
                     startActivity(intent);
                 }
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Class<?> defineActivity(User user) {
+        app = (CalcKidsApplication) getApplication();
         if (user.isParent()) {
             app.currentParentUser = user;
             return ParentMenu.class;
