@@ -1,6 +1,8 @@
 package com.example.objects;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     long id;
     String first_name;
     String last_name;
@@ -120,5 +122,10 @@ public class User {
 
     public boolean isParent() {
         return parent;
+    }
+
+    @Override
+    public String toString() {
+        return first_name;
     }
 }

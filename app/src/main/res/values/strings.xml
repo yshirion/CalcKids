@@ -10,15 +10,23 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
 
+    <!--    titles-->
+    <string name="hello"><big>Hello %1$s!</big> user: %2$s id: %3$d fid: %4$d</string>
+    <string name="parent"><big>by user: %1$s</big></string>
+    <!--    -->
+
     <!--    messages for user-->
+    <string name="welcome">welcome <b>%1$s %2$s</b></string>
     <string name="networkerror">Error: There is network problem.</string>
     <string name="fillAll">Please fill all fields.</string>
     <string name="erroruserpass">Either user name or password invalid.</string>
     <string name="familyidnum">Family id need to be an number</string>
     <string name="passwordmtach">The passwords not match.</string>
+    <string name="savedChanges">The changes have been saved.</string>
+    <!--    -->
 
     <!--    Strings for menu-->
-    <string name="loggupsuccess">The log up was successful!</string>
+    <string name="logupsuccess">The log up was successful!</string>
     <string name="message">MESSAGES</string>
     <string name="mission">MISSIONS</string>
     <string name="request">REQUESTS</string>
@@ -29,12 +37,13 @@
     <string name="createloan">CREATE LOAN</string>
     <string name="send">SEND</string>
     <string name="settings">SETTINGS</string>
+    <!---->
 
-<!--    strings for settings-->
+    <!--    strings for settings-->
     <string name="title_settings">SET PERCENTS</string>
-    <string name="loan_interest_title">Percent of loan interest:  </string>
-    <string name="long_interest_title">Percent of long investment:  </string>
-    <string name="short_interest_title">Percent of short investment:  </string>
+    <string name="loan_interest_title">Percent of loan interest:  %1$.2f</string>
+    <string name="long_interest_title">Percent of long investment:  %1$.2f</string>
+    <string name="short_interest_title">Percent of short investment:  %1$.2f</string>
 
     <string name="private_balance">Current balance</string>
     <string name="loans_title">Loans current state:</string>
@@ -47,4 +56,6 @@
     <string name="sign_in">Sign In</string>
     <string name="user_name">User name</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="cantFind">Can\'t find father.</string>
+
 </resources>

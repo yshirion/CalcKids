@@ -1,21 +1,20 @@
-package com.example.retrofit;
+package com.example.RestServise;
 
 import com.example.objects.User;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface UserService {
 
     @GET("user/{id}")
-    Call<User> getById(@Path("id") String userId);
+    Call<User> getById(@Path("id") long userId);
+
+    @GET("user/parent/{fid}")
+    Call<User> getParent(@Path("fid") long fid);
 
     @GET("user/family/{id}")
     Call<List<User>> findByFamily(@Path("id") long family_id);

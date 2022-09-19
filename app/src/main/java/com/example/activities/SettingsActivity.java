@@ -2,8 +2,9 @@ package com.example.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,8 +12,6 @@ import android.widget.Toast;
 import com.example.calackids.CalcKidsApplication;
 import com.example.calackids.R;
 import com.example.objects.Family;
-
-import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,10 +25,8 @@ public class SettingsActivity extends AppCompatActivity {
     TextView loanText,longText,shortText;
     TextView hidden_loan, hidden_long, hidden_short;
     double interestLoan, interestLongTime, interestShortTime;
+    Button saveChanges;
     final int MULTIPLIER = 100;
-    final String DEFAULT_LOAN = "Percent of loan interest:  ";
-    final String DEFAULT_LONG = "Percent of long investment:  ";
-    final String DEFAULT_SHORT = "Percent of short investment:  ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,28 +45,20 @@ public class SettingsActivity extends AppCompatActivity {
         hidden_long = findViewById(R.id.hidden_long);
         hidden_short = findViewById(R.id.hidden_short);
 
+        saveChanges = findViewById(R.id.save_changes);
 
-        initial();
-        setOnSeekBar(loan, loanText, hidden_loan, DEFAULT_LOAN);
-        setOnSeekBar(longInvest, longText, hidden_long, DEFAULT_LONG);
-        setOnSeekBar(shortInvest, shortText, hidden_short, DEFAULT_SHORT);
+        initialize();
     }
 
-    private void initial() {
+    private void initialize() {
 
         getFamily();
-//        interestLoan = currentFamily.getLoanInterest();
-//        interestLongTime = currentFamily.getInvestLongInterest();
-//        interestShortTime = currentFamily.getInvestShortInterest();
-//
-//        loanText.setText(DEFAULT_LOAN + interestLoan);
-//        loanText.setText(DEFAULT_LONG + interestLongTime);
-//        shortText.setText(DEFAULT_SHORT + interestShortTime);
+
+        setOnSeekBar(loan, loanText, hidden_loan, R.string.loan_interest_title);
+        setOnSeekBar(longInvest, longText, hidden_long, R.string.long_interest_title);
+        setOnSeekBar(shortInvest, shortText, hidden_short, R.string.short_interest_title);
 
 
-//        loan.setProgress((int) interestLoan * MULTIPLIER);
-//        longInvest.setProgress((int) interestLong * MULTIPLIER);
-//        shortInvest.setProgress((int) interestShort * MULTIPLIER);
     }
 
     private void getFamily(){
@@ -83,9 +72,17 @@ public class SettingsActivity extends AppCompatActivity {
                 interestLongTime = currentFamily.getInvestLongInterest();
                 interestShortTime = currentFamily.getInvestShortInterest();
 
-                loanText.setText(DEFAULT_LOAN + interestLoan);
-                longText.setText(DEFAULT_LONG + interestLongTime);
-                shortText.setText(DEFAULT_SHORT + interestShortTime);
+                loanText.setText(getString(R.string.loan_interest_title, interestLoan));
+                longText.setText(getString(R.string.long_interest_title, interestLongTime));
+                shortText.setText(getString(R.string.short_interest_title, interestShortTime));
+
+                loan.setProgress((int) (interestLoan * MULTIPLIER), true);
+                longInvest.setProgress((int) (interestLongTime * MULTIPLIER), true);
+                shortInvest.setProgress((int) (interestShortTime * MULTIPLIER), true);
+
+                hidden_loan.setText(String.valueOf(interestLoan));
+                hidden_long.setText(String.valueOf(interestLongTime));
+                hidden_short.setText(String.valueOf(interestShortTime));
             }
 
             @Override
@@ -95,24 +92,50 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnSeekBar(SeekBar seekBar, TextView textView, TextView hidden, String defaultText) {
+    private void setOnSeekBar(SeekBar seekBar, TextView textView, TextView hidden, int stringRes) {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            double changes;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                String s = String.valueOf((double) progress / MULTIPLIER);
-                hidden.setText(s);
-                textView.setText(defaultText + s);
+                changes = (double) progress / MULTIPLIER;
+                textView.setText(getString(stringRes, (double) progress / MULTIPLIER));
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                hidden.setText(String.valueOf(changes));
+            }
+        });
+    }
+
+    public void onClick(View view){
+        app = (CalcKidsApplication) getApplication();
+        currentFamily.setLoanInterest(Double.parseDouble(hidden_loan.getText().toString()));
+        currentFamily.setInvestLongInterest(Double.parseDouble(hidden_long.getText().toString()));
+        currentFamily.setInvestShortInterest(Double.parseDouble(hidden_short.getText().toString()));
+
+        System.out.println(""+currentFamily.getLoanInterest());
+        System.out.println(""+currentFamily.getInvestLongInterest());
+        System.out.println(""+currentFamily.getInvestShortInterest());
+
+        app.familyService.update(currentFamily).enqueue(new Callback<Family>() {
+            @Override
+            public void onResponse(Call<Family> call, Response<Family> response) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        getString(R.string.savedChanges),
+                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<Family> call, Throwable t) {
 
             }
         });
     }
+
 }

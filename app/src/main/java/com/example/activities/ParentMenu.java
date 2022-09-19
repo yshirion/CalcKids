@@ -38,8 +38,8 @@ public class ParentMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         app = (CalcKidsApplication) getApplication();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_parent);
-        title = findViewById(R.id.parentTitle);
+        setContentView(R.layout.activity_menu);
+        title = findViewById(R.id.userTitle);
         title.setText(setUserTitle());
 
         initializeMenu();
@@ -50,7 +50,7 @@ public class ParentMenu extends AppCompatActivity {
 
         //Add default cards in parent's menu
         cardsList.add(new MenuCard(getString(R.string.settings), R.drawable.control, SettingsActivity.class));
-        cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, BlankforWhile.class));
+        cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 
         getChildren();
     }
@@ -69,16 +69,15 @@ public class ParentMenu extends AppCompatActivity {
                                 cardsList.add(0, new MenuCard(name, R.drawable.portrait, ChildMenu.class));
                             }
                             Collections.reverse(childUsers);
-
-                            //Load cardViews and put on activity.
-                            mRecyclerView = findViewById(R.id.idGVcardparent);
-                            mRecyclerView.setHasFixedSize(true);
-                            mLayoutManager = new LinearLayoutManager(ParentMenu.this);
-                            mAdapter = new CardAdapter(cardsList);
-                            //
-                            mRecyclerView.setLayoutManager(new GridLayoutManager(ParentMenu.this, 2));
-                            mRecyclerView.setAdapter(mAdapter);
                         }
+                        //Load cardViews and put on activity.
+                        mRecyclerView = findViewById(R.id.idGVcard);
+                        mRecyclerView.setHasFixedSize(true);
+                        mLayoutManager = new LinearLayoutManager(ParentMenu.this);
+                        mAdapter = new CardAdapter(cardsList);
+                        //
+                        mRecyclerView.setLayoutManager(new GridLayoutManager(ParentMenu.this, 2));
+                        mRecyclerView.setAdapter(mAdapter);
                     }
 
                     @Override
@@ -100,16 +99,18 @@ public class ParentMenu extends AppCompatActivity {
             app.currentChildUser = childUsers.get(location);
         }
 
-        Intent intent = new Intent(this, mc.getActivity());
+        Intent intent = new Intent(ParentMenu.this, mc.getActivity());
+        intent.putExtra("childrenList", childUsers);
         startActivity(intent);
     }
     public String setUserTitle(){
         app = (CalcKidsApplication) getApplication();
-        String child;
-        child = ((CalcKidsApplication) getApplication()).currentParentUser.getUser_name()
-                + " id: " + ((CalcKidsApplication) getApplication()).currentParentUser.getId()
-                + " Fid: " +((CalcKidsApplication) getApplication()).currentParentUser.getFamily_id() + ".";
-        return child;
+        String parent = getString(R.string.hello,
+                app.currentParentUser.getFirstName(),
+                app.currentParentUser.getUser_name(),
+                app.currentParentUser.getId(),
+                app.currentParentUser.getFamily_id());
+        return parent;
     }
     @Override
     public void onBackPressed(){

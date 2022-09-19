@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.calackids.CalcKidsApplication;
-import com.example.calackids.MainActivity;
 import com.example.calackids.R;
 import com.example.objects.User;
 import com.google.android.material.textfield.TextInputEditText;
@@ -49,7 +48,7 @@ public class Register_family extends AppCompatActivity {
                                 if (response.body().toString().equals("saved")){
                                     Toast.makeText(
                                             getApplicationContext(),
-                                            getString(R.string.loggupsuccess),
+                                            getString(R.string.logupsuccess),
                                             Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(Register_family.this, MainActivity.class);
                                     startActivity(intent);

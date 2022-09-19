@@ -1,17 +1,14 @@
-package com.example.calackids;
+package com.example.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.activities.ChildMenu;
-import com.example.activities.ParentMenu;
-import com.example.activities.Register;
-import com.example.activities.Register_family;
+import com.example.calackids.CalcKidsApplication;
+import com.example.calackids.R;
 import com.example.objects.User;
 
-import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -58,9 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     Class<?> activity = defineActivity(response.body());
-                    message = "Welcome "+ response.body().getFirstName()
-                             + " " + response.body().getLast_name();
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+//                            "Welcome "+ response.body().getFirstName()
+//                             + " " + response.body().getLast_name();
+                    Toast.makeText(
+                            getApplicationContext(),
+                            getString(R.string.welcome,response.body().getFirstName(), response.body().getLast_name()),
+                            Toast.LENGTH_SHORT).show();
 
                     userBox.setText("");
                     passwordBox.setText("");
@@ -94,13 +94,6 @@ public class MainActivity extends AppCompatActivity {
         else c = Register.class;
         Intent intent = new Intent(this, c);
         startActivity(intent);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        return true;
     }
 
 }
