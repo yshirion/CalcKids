@@ -10,5 +10,6 @@
     <color name="orange">#C87905</color>
     <color name="light_orange">#C99704</color>
     <color name="gray">#93928A</color>
-    <color name="dark_gray">#787873</color>
+    <color name="_gray">#787873</color>
+    <color name="dark_gray">#555553</color>
 </resources>

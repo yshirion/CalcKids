@@ -17,12 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name="com.example.activities.CreateAction"
+            android:exported="true"
+            android:theme="@style/AppDialogTheme"/>
+        <activity
             android:name="com.example.activities.SettingsActivity"
             android:exported="true" />
         <activity
             android:name="com.example.activities.CreateMessage"
             android:exported="false"
-            android:theme="@style/AppDialogTheme"/>
+            android:theme="@style/AppDialogTheme" />
         <activity
             android:name="com.example.activities.BlankforWhile"
             android:exported="false" />

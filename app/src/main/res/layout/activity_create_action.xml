@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_orange"
+    tools:context="com.example.activities.CreateAction">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/close_actions"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="70dp"
+            android:padding="0dp"
+            android:text="X"
+            android:textSize="15dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="0.5dp"
+            android:onClick="closeClick"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="55dp"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Create transaction"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/type_of"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_white"
+            android:hint="@string/Type"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/amount_action"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_white"
+            android:hint="@string/amount"
+            android:paddingLeft="10dp" />
+
+        <Button
+            android:id="@+id/execute_action"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/roundedbutton"
+            android:gravity="start"
+            android:padding="0dp"
+            android:paddingStart="100dp"
+            android:paddingEnd="100dp"
+            android:text="@string/execute"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:backgroundTint="@color/dark_gray"
+            android:onClick="actionClick"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Create Investment"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/length"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_white"
+            android:hint="@string/length"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/amount_invest"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_white"
+            android:hint="@string/amount"
+            android:paddingLeft="10dp" />
+
+        <Button
+            android:id="@+id/execute_invest"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/roundedbutton"
+            android:gravity="start"
+            android:padding="0dp"
+            android:paddingStart="100dp"
+            android:paddingEnd="100dp"
+            android:text="@string/execute"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:backgroundTint="@color/dark_gray"
+            android:onClick="investClick"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Create loan"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/amount_loan"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_white"
+            android:hint="@string/amount"
+            android:paddingLeft="10dp" />
+
+        <Button
+            android:id="@+id/execute_loan"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/roundedbutton"
+            android:gravity="start"
+            android:padding="0dp"
+            android:paddingStart="100dp"
+            android:paddingEnd="100dp"
+            android:text="@string/execute"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:backgroundTint="@color/dark_gray"
+            android:onClick="loanClick"/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

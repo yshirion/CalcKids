@@ -19,6 +19,7 @@
     <string name="welcome">welcome <b>%1$s %2$s</b></string>
     <string name="networkerror">Error: There is network problem.</string>
     <string name="fillAll">Please fill all fields.</string>
+    <string name="invalidValue">Please fill all fields with valid value.</string>
     <string name="erroruserpass">Either user name or password invalid.</string>
     <string name="familyidnum">Family id need to be an number</string>
     <string name="passwordmtach">The passwords not match.</string>
@@ -57,5 +58,10 @@
     <string name="user_name">User name</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="cantFind">Can\'t find father.</string>
+    <string name="createAction">CREATE ACTION</string>
+    <string name="execute">EXECUTE</string>
+    <string name="Type">Type: income/expense</string>
+    <string name="amount">Amount</string>
+    <string name="length">Type: long/short</string>
 
 </resources>

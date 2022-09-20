@@ -53,8 +53,6 @@ public class CreateMessage extends AppCompatActivity {
         send = (ImageButton) findViewById(R.id.send);
 
             send.setOnClickListener(v -> {
-                System.out.println(textField.getText().toString().trim());
-                System.out.println(subject.getText().toString().trim());
                 if (textField.getText().toString().trim().equals("") ||
                         subject.getText().toString().trim().equals("")) {
                     Toast.makeText(getApplicationContext(), getString(R.string.fillAll), Toast.LENGTH_SHORT).show();

@@ -62,6 +62,7 @@ public class ChildMenu extends AppCompatActivity {
             cardsList.remove(cardsList.size()-1);
             cardsList.add(new MenuCard(getString(R.string.createinvest), R.drawable.file, BlankforWhile.class));
             cardsList.add(new MenuCard(getString(R.string.createloan), R.drawable.file, BlankforWhile.class));
+            cardsList.add(new MenuCard(getString(R.string.createAction), R.drawable.file, BlankforWhile.class));
         }
 
         //Load cardviews and put on activity.
