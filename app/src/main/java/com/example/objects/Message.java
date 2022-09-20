@@ -1,12 +1,17 @@
 package com.example.objects;
 
-import java.util.UUID;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+import java.time.LocalDate;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Message {
 
     long id;
     long sender, destination;
     String subject = "", text ="";
+    String sender_name;
+    LocalDate today;
     boolean readed;
 
     public Message() {
@@ -17,6 +22,18 @@ public class Message {
         this.destination = destination;
         this.subject = subject;
         this.text = text;
+        this.readed = readed;
+        today = LocalDate.now();
+    }
+
+    public Message(long id, long sender, long destination, String subject, String text, String sender_name, LocalDate today, boolean readed) {
+        this.id = id;
+        this.sender = sender;
+        this.destination = destination;
+        this.subject = subject;
+        this.text = text;
+        this.sender_name = sender_name;
+        this.today = today;
         this.readed = readed;
     }
 
@@ -66,5 +83,25 @@ public class Message {
 
     public void setReaded(boolean readed) {
         this.readed = readed;
+    }
+
+    public LocalDate getToday() {
+        return today;
+    }
+
+    public void setToday() {
+        today = LocalDate.now();
+    }
+
+    public String getSender_name() {
+        return sender_name;
+    }
+
+    public void setSender_name(String sender_name) {
+        this.sender_name = sender_name;
+    }
+
+    public void setToday(LocalDate today) {
+        this.today = today;
     }
 }

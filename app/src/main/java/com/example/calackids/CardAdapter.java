@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 
@@ -53,37 +52,3 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
         return mExampleList.size();
     }
 }
-//import android.content.Context;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.ArrayAdapter;
-//import android.widget.ImageView;
-//import android.widget.TextView;
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import java.util.ArrayList;
-//
-//public class CardAdapter extends ArrayAdapter<Card> {
-//    public CardAdapter(@NonNull Context context, ArrayList<Card> courseModelArrayList) {
-//        super(context, 0, courseModelArrayList);
-//    }
-//
-//    @NonNull
-//    @Override
-//    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        View listitemView = convertView;
-//        if (listitemView == null) {
-//            // Layout Inflater inflates each item to be displayed in GridView.
-//            listitemView = LayoutInflater.from(getContext()).inflate(R.layout.cardl, parent, false);
-//        }
-//        Card card = getItem(position);
-//        TextView cardTV = listitemView.findViewById(R.id.img);
-//        ImageView cardIV = listitemView.findViewById(R.id.text);
-//        cardTV.setText(card.getCard_text());
-//        cardIV.setImageResource(card.getImage_id());
-//
-//        return listitemView;
-//    }
-//}
-//

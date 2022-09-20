@@ -1,6 +1,7 @@
 package com.example.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,6 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class ParentMenu extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
@@ -49,6 +52,7 @@ public class ParentMenu extends AppCompatActivity {
         cardsList = new ArrayList<MenuCard>();
 
         //Add default cards in parent's menu
+        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, BlankforWhile.class));
         cardsList.add(new MenuCard(getString(R.string.settings), R.drawable.control, SettingsActivity.class));
         cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 

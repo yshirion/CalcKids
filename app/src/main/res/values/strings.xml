@@ -63,5 +63,6 @@
     <string name="Type">Type: income/expense</string>
     <string name="amount">Amount</string>
     <string name="length">Type: long/short</string>
+    <string name="not_saved">not Saved</string>
 
 </resources>

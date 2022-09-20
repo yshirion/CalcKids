@@ -51,14 +51,31 @@
             android:textSize="18sp" />
 
 
-        <EditText
-            android:id="@+id/type_of"
+<!--        <EditText-->
+<!--            android:id="@+id/type_of"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/rounded_white"-->
+<!--            android:hint="@string/Type"-->
+<!--            android:paddingLeft="10dp" />-->
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_white"
-            android:hint="@string/Type"
-            android:paddingLeft="10dp" />
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="100dp"
+                android:text="Income"
+                android:id="@+id/radio_income"
+                android:layout_height="match_parent"
+                android:onClick="radioActionClick"/>
+            <RadioButton
+                android:layout_width="100dp"
+                android:id="@+id/radio_expense"
+                android:text="Expense"
+                android:layout_height="match_parent"
+                android:onClick="radioActionClick"/>
+        </RadioGroup>
 
         <EditText
             android:id="@+id/amount_action"
@@ -94,14 +111,23 @@
             android:textSize="18sp" />
 
 
-        <EditText
-            android:id="@+id/length"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_white"
-            android:hint="@string/length"
-            android:paddingLeft="10dp" />
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="100dp"
+                android:text="Long"
+                android:id="@+id/radio_long"
+                android:layout_height="match_parent"
+                android:onClick="radioInvestClick"/>
+            <RadioButton
+                android:layout_width="100dp"
+                android:id="@+id/radio_short"
+                android:text="Short"
+                android:layout_height="match_parent"
+                android:onClick="radioInvestClick"/>
+        </RadioGroup>
 
         <EditText
             android:id="@+id/amount_invest"

@@ -1,7 +1,9 @@
 package com.example.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -21,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class CreateMessage extends AppCompatActivity {
     CalcKidsApplication app;
     private Spinner spinner;
@@ -115,7 +117,7 @@ public class CreateMessage extends AppCompatActivity {
                 .enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        if (response.body().equals("saved")){
+                        if (response.isSuccessful() && response.body().equals("saved")){
                             Toast.makeText(
                                     getApplicationContext(),
                                     response.body(),
@@ -125,7 +127,7 @@ public class CreateMessage extends AppCompatActivity {
                         else {
                             Toast.makeText(
                                     getApplicationContext(),
-                                    response.body(),
+                                    R.string.not_saved,
                                     Toast.LENGTH_LONG).show();
                         }
                     }

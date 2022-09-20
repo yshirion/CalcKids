@@ -125,10 +125,12 @@ public class SettingsActivity extends AppCompatActivity {
         app.familyService.update(currentFamily).enqueue(new Callback<Family>() {
             @Override
             public void onResponse(Call<Family> call, Response<Family> response) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        getString(R.string.savedChanges),
-                        Toast.LENGTH_LONG).show();
+                if (response.isSuccessful()) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            getString(R.string.savedChanges),
+                            Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override

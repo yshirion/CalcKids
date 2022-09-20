@@ -1,37 +1,36 @@
 package com.example.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.calackids.CalcKidsApplication;
 import com.example.calackids.CardAdapter;
 import com.example.calackids.MenuCard;
 import com.example.calackids.R;
 import com.example.objects.User;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class ChildMenu extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView title;
     CalcKidsApplication app;
-    ArrayList<MenuCard> cardsList;
+    private ArrayList<MenuCard> cardsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +49,25 @@ public class ChildMenu extends AppCompatActivity {
 
         //Add all cards with their title, icon, and destination activity.
         cardsList.add(new MenuCard(getString(R.string.mission), R.drawable.mission, BlankforWhile.class));
-        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, CreateMessage.class));
-        cardsList.add(new MenuCard(getString(R.string.request), R.drawable.request, BlankforWhile.class));
+        cardsList.add(new MenuCard(getString(R.string.request), R.drawable.request, CreateAction.class));
         cardsList.add(new MenuCard(getString(R.string.balance), R.drawable.balance, Balance.class));
         cardsList.add(new MenuCard(getString(R.string.invest), R.drawable.invest,Loans.class));
         cardsList.add(new MenuCard(getString(R.string.loan), R.drawable.loan,Investments.class));
+        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, BlankforWhile.class));
         cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 
-        //Change activity for view from parent.
+        //Change this activity for view from parent.
         if (app.currentParentUser != null){
             cardsList.remove(cardsList.size()-1);
-            cardsList.add(new MenuCard(getString(R.string.createinvest), R.drawable.file, BlankforWhile.class));
-            cardsList.add(new MenuCard(getString(R.string.createloan), R.drawable.file, BlankforWhile.class));
-            cardsList.add(new MenuCard(getString(R.string.createAction), R.drawable.file, BlankforWhile.class));
+            cardsList.remove(cardsList.size()-1);
         }
 
         //Load cardviews and put on activity.
         mRecyclerView = findViewById(R.id.idGVcard);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new CardAdapter(cardsList);
-        //
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mAdapter = new CardAdapter(cardsList);
         mRecyclerView.setAdapter(mAdapter);
     }
 

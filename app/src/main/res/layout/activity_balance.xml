@@ -19,29 +19,33 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="80dp"
             android:text="@string/balance"
-            android:textSize="15sp" />
+            android:textStyle="bold"
+            android:textColor="@color/dark_gray"
+            android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="140dp"
             android:layout_centerHorizontal="true"
-            android:textSize="22sp" />
+            android:textSize="25sp" />
 
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/action_list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="100dp"
         android:layout_weight="4"
+        android:scrollbars="vertical"
         android:paddingHorizontal="10dp"
         android:paddingVertical="45dp"
-        android:background="@drawable/bg_general">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:background="@drawable/bg_general"/>
 
 
 </LinearLayout>
