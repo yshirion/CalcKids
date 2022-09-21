@@ -17,6 +17,7 @@ import com.example.calackids.R;
 import com.example.objects.Message;
 import com.example.objects.User;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class Messages extends AppCompatActivity {
                             messagesList = (ArrayList<Message>) response.body();
                             for (Message message : messagesList){
                                 ListCard card = new ListCard(
-                                        message.getToday().toString(),
+                                        message.getToday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                                         message.getSender_name(),
                                         message.getSubject(),
                                         "",

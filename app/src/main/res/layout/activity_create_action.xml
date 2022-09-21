@@ -51,19 +51,11 @@
             android:textSize="18sp" />
 
 
-<!--        <EditText-->
-<!--            android:id="@+id/type_of"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/rounded_white"-->
-<!--            android:hint="@string/Type"-->
-<!--            android:paddingLeft="10dp" />-->
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:checkedButton="@id/radio_income"
             android:orientation="horizontal">
+<!--            android:checkedButton="@id/radio_income"-->
             <RadioButton
                 android:layout_width="100dp"
                 android:text="Income"
@@ -115,8 +107,9 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:checkedButton="@id/radio_long"
+
             android:orientation="horizontal">
+<!--            android:checkedButton="@id/radio_long"-->
             <RadioButton
                 android:layout_width="100dp"
                 android:text="Long"

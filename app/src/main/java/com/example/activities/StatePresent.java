@@ -18,6 +18,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -84,7 +86,7 @@ public class StatePresent extends AppCompatActivity {
                                 actionList = (ArrayList<Action>) response.body();
                                 for (Action act : actionList){
                                     ListCard card = new ListCard(
-                                            act.getStart().toString(),
+                                            act.getStart().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                                             String.valueOf(act.getAmount()),
                                             act.getType(),
                                             "");
@@ -135,14 +137,14 @@ public class StatePresent extends AppCompatActivity {
                             double sum =0;
                             for (Invest invest : investList){
                                 ListCard card = new ListCard(
-                                        invest.getStart().toString(),
-                                        String.valueOf(invest.getCurrentAmount()),
+                                        invest.getStart().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                                        String.format("%.2f",invest.getCurrentAmount()),
                                         String.valueOf(invest.getInterest()),
-                                        invest.getEnd().toString());
+                                        invest.getEnd().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
                                 sum += invest.getCurrentAmount();
                                 actionCardList.add(card);
                             }
-                            total.setText(String.valueOf(sum + " $"));
+                            total.setText(String.format("%.4f",sum) + " $");
                             mRecyclerView.setAdapter(mAdapter);
                         }
                         @Override
@@ -175,13 +177,14 @@ public class StatePresent extends AppCompatActivity {
                             double sum =0;
                             for (Loan loan : loansList){
                                 ListCard card = new ListCard(
-                                        loan.getStart().toString(),
-                                        String.valueOf(loan.getAmount()),
-                                        loan.getType(),
+                                        loan.getStart().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                                        String.format("%.2f",loan.getCurrentAmount()),
+                                        String.valueOf(loan.getInterest()),
                                         "");
+                                sum += loan.getCurrentAmount();
                                 actionCardList.add(card);
                             }
-                            total.setText(String.valueOf(sum + " $"));
+                            total.setText(String.format("%.4f", sum) + " $");
                             mRecyclerView.setAdapter(mAdapter);
                         }
                         @Override

@@ -12,6 +12,8 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -27,13 +29,13 @@ public class RetrofitService {
     }
 
 
-    private static final Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+    private static final Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
         @Override
-        public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-            return LocalDate.parse(json.getAsJsonPrimitive().getAsString());
+        public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+            return LocalDateTime.parse(json.getAsJsonPrimitive().getAsString());
         }
     }).setPrettyPrinting()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateAdapter()).create();
 
 //    Gson gson = new GsonBuilder()
 //            .setPrettyPrinting()

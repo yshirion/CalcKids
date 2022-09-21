@@ -17,11 +17,10 @@ public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.Exampl
         public TextView amount_text;
         public TextView type_text;
         public TextView end_text;
-        int count;
+
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
-            count = 0;
             date_text = (TextView) itemView.findViewById(R.id.date_view);
             amount_text = (TextView) itemView.findViewById(R.id.amount_from);
             type_text = (TextView) itemView.findViewById(R.id.subject_type);

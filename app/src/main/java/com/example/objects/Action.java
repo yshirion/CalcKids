@@ -1,17 +1,15 @@
 package com.example.objects;
 
 import android.os.Build;
-
 import androidx.annotation.RequiresApi;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Action {
     protected boolean positive;
     protected String type;
     protected double amount;
-    protected LocalDate start;
+    protected LocalDateTime start;
     protected long user;
 
     public Action() {
@@ -21,7 +19,7 @@ public class Action {
         this.positive = positive;
         this.type = type;
         this.amount = amount;
-        start = LocalDate.now();
+        start = LocalDateTime.now();
         this.user = user;
     }
 
@@ -50,11 +48,11 @@ public class Action {
         this.amount = amount;
     }
 
-    public LocalDate getStart() {
+    public LocalDateTime getStart() {
         return start;
     }
 
-    public void setStart(LocalDate start) {
+    public void setStart(LocalDateTime start) {
         this.start = start;
     }
 

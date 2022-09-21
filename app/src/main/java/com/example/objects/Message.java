@@ -2,9 +2,9 @@ package com.example.objects;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Message implements Serializable {
@@ -13,7 +13,7 @@ public class Message implements Serializable {
     long sender, destination;
     String subject = "", text ="";
     String sender_name;
-    LocalDate today;
+    LocalDateTime today;
     boolean readed;
 
     public Message() {
@@ -25,10 +25,10 @@ public class Message implements Serializable {
         this.subject = subject;
         this.text = text;
         this.readed = readed;
-        today = LocalDate.now();
+        today = LocalDateTime.now();
     }
 
-    public Message(long id, long sender, long destination, String subject, String text, String sender_name, LocalDate today, boolean readed) {
+    public Message(long id, long sender, long destination, String subject, String text, String sender_name, LocalDateTime today, boolean readed) {
         this.id = id;
         this.sender = sender;
         this.destination = destination;
@@ -87,12 +87,12 @@ public class Message implements Serializable {
         this.readed = readed;
     }
 
-    public LocalDate getToday() {
+    public LocalDateTime getToday() {
         return today;
     }
 
     public void setToday() {
-        today = LocalDate.now();
+        today = LocalDateTime.now();
     }
 
     public String getSender_name() {
@@ -103,7 +103,7 @@ public class Message implements Serializable {
         this.sender_name = sender_name;
     }
 
-    public void setToday(LocalDate today) {
+    public void setToday(LocalDateTime today) {
         this.today = today;
     }
 }

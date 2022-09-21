@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.16247002398081534" />
+        <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.185" />
         <entry key="app/src/main/res/drawable/bg_general.xml" value="0.184" />
+        <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.185" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.271" />
         <entry key="app/src/main/res/drawable/rounded_green.xml" value="0.175" />
