@@ -34,8 +34,6 @@ public class CreateMessage extends AppCompatActivity {
     private ArrayList<User> children;
     private User receiver, sender;
     private Message message;
-    boolean parent;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

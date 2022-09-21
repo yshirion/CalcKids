@@ -17,12 +17,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name="com.example.activities.MessagePresent"
+            android:exported="false"
+            android:theme="@style/Theme.CalcKids.NoActionBar"/>
+        <activity
+            android:name="com.example.activities.Messages"
+            android:theme="@style/Theme.CalcKids.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name="com.example.activities.CreateAction"
             android:exported="true"
-            android:theme="@style/AppDialogTheme"/>
+            android:theme="@style/AppDialogTheme" />
         <activity
             android:name="com.example.activities.SettingsActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.CalcKids.NoActionBar" />
         <activity
             android:name="com.example.activities.CreateMessage"
             android:exported="false"
@@ -31,13 +40,7 @@
             android:name="com.example.activities.BlankforWhile"
             android:exported="false" />
         <activity
-            android:name="com.example.activities.Investments"
-            android:exported="false" />
-        <activity
-            android:name="com.example.activities.Loans"
-            android:exported="false" />
-        <activity
-            android:name="com.example.activities.Balance"
+            android:name="com.example.activities.StatePresent"
             android:exported="false"
             android:label="@string/title_activity_balance"
             android:theme="@style/Theme.CalcKids.NoActionBar" />
@@ -52,8 +55,7 @@
             android:theme="@style/Theme.CalcKids.NoActionBar" />
         <activity
             android:name="com.example.activities.Register_family"
-            android:exported="false"
-            android:theme="@style/Theme.CalcKids.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name="com.example.activities.Register"
             android:exported="false" />

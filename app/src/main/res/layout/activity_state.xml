@@ -7,7 +7,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="6"
-    tools:context="com.example.activities.Balance">
+    tools:context="com.example.activities.StatePresent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/settingSeek"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/userTitle_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:paddingStart="10dp"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/icon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,6 +39,7 @@
         android:layout_weight="2">
 
         <TextView
+            android:id="@+id/title_list_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -43,9 +68,11 @@
         android:layout_height="100dp"
         android:layout_weight="4"
         android:scrollbars="vertical"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="5dp"
         android:paddingVertical="45dp"
-        android:background="@drawable/bg_general"/>
+        android:background="@drawable/bg_general">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

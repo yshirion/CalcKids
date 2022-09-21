@@ -43,8 +43,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
         holder.mImageView.setImageResource(currentItem.getImage_id());
         holder.mTextView1.setText(currentItem.getCard_text());
         holder.itemView.setTag(currentItem);
-
-
     }
 
     @Override

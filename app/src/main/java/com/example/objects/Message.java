@@ -2,10 +2,12 @@ package com.example.objects;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class Message {
+public class Message implements Serializable {
 
     long id;
     long sender, destination;

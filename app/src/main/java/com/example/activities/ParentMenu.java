@@ -52,7 +52,7 @@ public class ParentMenu extends AppCompatActivity {
         cardsList = new ArrayList<MenuCard>();
 
         //Add default cards in parent's menu
-        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, BlankforWhile.class));
+        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, Messages.class));
         cardsList.add(new MenuCard(getString(R.string.settings), R.drawable.control, SettingsActivity.class));
         cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 

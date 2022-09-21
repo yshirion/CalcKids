@@ -62,6 +62,7 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
+            android:checkedButton="@id/radio_income"
             android:orientation="horizontal">
             <RadioButton
                 android:layout_width="100dp"
@@ -114,6 +115,7 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="25dp"
+            android:checkedButton="@id/radio_long"
             android:orientation="horizontal">
             <RadioButton
                 android:layout_width="100dp"

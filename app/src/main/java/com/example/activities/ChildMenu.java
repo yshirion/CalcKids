@@ -50,10 +50,10 @@ public class ChildMenu extends AppCompatActivity {
         //Add all cards with their title, icon, and destination activity.
         cardsList.add(new MenuCard(getString(R.string.mission), R.drawable.mission, BlankforWhile.class));
         cardsList.add(new MenuCard(getString(R.string.request), R.drawable.request, CreateAction.class));
-        cardsList.add(new MenuCard(getString(R.string.balance), R.drawable.balance, Balance.class));
-        cardsList.add(new MenuCard(getString(R.string.invest), R.drawable.invest,Loans.class));
-        cardsList.add(new MenuCard(getString(R.string.loan), R.drawable.loan,Investments.class));
-        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, BlankforWhile.class));
+        cardsList.add(new MenuCard(getString(R.string.balance), R.drawable.balance, StatePresent.class));
+        cardsList.add(new MenuCard(getString(R.string.invest), R.drawable.invest,StatePresent.class));
+        cardsList.add(new MenuCard(getString(R.string.loan), R.drawable.loan,StatePresent.class));
+        cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, Messages.class));
         cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 
         //Change this activity for view from parent.
@@ -79,6 +79,7 @@ public class ChildMenu extends AppCompatActivity {
             defineParent(mc);
         else {
             Intent intent = new Intent(this, mc.getActivity());
+            intent.putExtra("whichActivity", mc.getCard_text());
             startActivity(intent);
         }
     }

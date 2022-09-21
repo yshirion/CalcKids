@@ -14,9 +14,17 @@ import retrofit2.http.Path;
 
 public interface ActionService {
 
+    //Get methods for station present activity.
     @GET("/action/{id}")
     Call<List<Action>> getActions(@Path("id") long userId);
 
+    @GET("/loan/{id}")
+    Call<List<Loan>> getLoans(@Path("id") long userId);
+
+    @GET("/invest/{id}")
+    Call<List<Invest>> getInvest(@Path("id") long userId);
+
+    //Post methods for 'create action' activity
     @POST("/action/save")
     Call<String> saveAction(@Body Action action);
 

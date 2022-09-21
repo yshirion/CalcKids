@@ -8,6 +8,9 @@
         <entry key="app/src/main/res/drawable/bg_general.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.185" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.271" />
+        <entry key="app/src/main/res/drawable/rounded_green.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/rounded_read.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/rounded_red.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/rounded_white.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/roundedbutton.xml" value="0.175" />
         <entry key="app/src/main/res/layout-land/activity_register.xml" value="0.44947916666666665" />
@@ -21,6 +24,7 @@
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/activity_menu_child.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_menu_parent.xml" value="0.28003420265070544" />
+        <entry key="app/src/main/res/layout/activity_message_present.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/activity_messages.xml" value="0.26849080803762293" />
         <entry key="app/src/main/res/layout/activity_missions.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_open_screen_child.xml" value="0.28003420265070544" />
@@ -29,6 +33,7 @@
         <entry key="app/src/main/res/layout/activity_register_family.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_requests.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_state.xml" value="0.14493373236425822" />
         <entry key="app/src/main/res/layout/card_view.xml" value="0.28003420265070544" />
         <entry key="app/src/main/res/layout/cardl.xml" value="0.375" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.14749893116716545" />
