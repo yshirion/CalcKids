@@ -102,13 +102,16 @@ public class Messages extends AppCompatActivity {
         CardView c = (CardView) v;
         c.setBackgroundResource(R.drawable.rounded_white);
         ListCard mc = (ListCard) c.getTag();
-        if (!mc.getMessage().isReaded()){
-            mc.getMessage().setReaded(true);
-            isModify = true;
+        if(mc.isMessage) {
+            if (!mc.getMessage().isReaded()) {
+                mc.getMessage().setReaded(true);
+                isModify = true;
+            }
+            Intent intent = new Intent(Messages.this, MessagePresent.class);
+            intent.putExtra("content", mc);
+            startActivity(intent);
         }
-        Intent intent = new Intent(Messages.this, MessagePresent.class);
-        intent.putExtra("content", mc);
-        startActivity(intent);
+        else ;
     }
 
     @Override
