@@ -19,23 +19,28 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// The class of creating action in balance, investment, or loan. It's small activity on other activity.
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class CreateAction extends AppCompatActivity {
 
     CalcKidsApplication app;
     private Button actionButton, investButton, loanButton, close;
     private EditText  actionAmount, investAmount, loanAmount;
-    boolean length, positive;
+    boolean length;    //For invest - know whether it is long or short term invest.
+    boolean positive; // For action - know whether it is positive or negative action (income or expense).
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_action);
         app = (CalcKidsApplication) getApplication();
-        defineAsSubActivity();
+        super.onCreate(savedInstanceState);
+        if (app.currentParentUser == null)
+            setContentView(R.layout.activity_create_action2);
+        else setContentView(R.layout.activity_create_action);
+        defineAsSubActivity(); //Create this activity *small* and *on* his parent.
         setAll();
     }
 
+    //Set all parts of this activity.
     private void setAll() {
 
         close = (Button) findViewById(R.id.close_actions);
@@ -56,10 +61,11 @@ public class CreateAction extends AppCompatActivity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.7));
     }
 
+    // What happen when press execute action -check details validation and send to server for save the action.
     public void actionClick(View v){
         double amount;
         String type;
-        if (!isDouble(actionAmount.getText().toString().trim())){
+        if (!isDouble(actionAmount.getText().toString().trim())){  //Not number wrote there (ignoring Spaces).
             Toast.makeText(getApplicationContext(), getString(R.string.invalidValue), Toast.LENGTH_SHORT).show();
         }
         else {
@@ -68,10 +74,12 @@ public class CreateAction extends AppCompatActivity {
             else type = "expense";
 
             Action action = new Action(positive,type,amount,app.currentChildUser.getId());
+            // Function for send to the server all details.
             send(action);
         }
     }
 
+    // What happen when press execute loan -check details validation and send to server for save the loan.
     public void investClick(View v){
         double amount;
         String type;
@@ -85,6 +93,7 @@ public class CreateAction extends AppCompatActivity {
         }
     }
 
+    // What happen when press execute invest -check details validation and send to server for save the investment.
     public void loanClick(View v){
         double amount;
         if (!isDouble(loanAmount.getText().toString().trim())){
@@ -96,12 +105,15 @@ public class CreateAction extends AppCompatActivity {
             send(action);
         }
     }
+
     public void closeClick(View v) {
             finish();
     }
 
+    //General function for save all of the above - base on kind of button.
     private void send(Action action) {
         Call<String> call;
+        // Recognize the kind of action base on polymorphism.
         if (action instanceof Invest)
             call = app.actionService.saveInvest((Invest) action);
         else if (action instanceof Loan)
@@ -122,7 +134,7 @@ public class CreateAction extends AppCompatActivity {
                 else{
                     Toast.makeText(
                             getApplicationContext(),
-                            R.string.not_saved,
+                            response.body(),
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -135,6 +147,7 @@ public class CreateAction extends AppCompatActivity {
 
     }
 
+    // Simple Check if the text is number because String.isBlank not work in this version.
     private boolean isDouble(String s){
         try {
             Double.parseDouble(s);
@@ -144,6 +157,8 @@ public class CreateAction extends AppCompatActivity {
             return false;
         }
     }
+
+    //Define the type of action.
     public void radioActionClick(View view){
         boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()) {
@@ -158,6 +173,7 @@ public class CreateAction extends AppCompatActivity {
         }
     }
 
+    //Define the type of investment.
     public void radioInvestClick(View view){
         boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()) {

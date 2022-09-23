@@ -3,7 +3,6 @@ package com.example.objects;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)

@@ -16,21 +16,21 @@ import com.example.calackids.ListCardAdapter;
 import com.example.calackids.R;
 import com.example.objects.Message;
 import com.example.objects.User;
-
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Messages extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView mRecyclerView;                 // RecyclerView and his tools:
+    private RecyclerView.Adapter mAdapter;              // Adapter, manager, and list of objects
+    private RecyclerView.LayoutManager mLayoutManager;  // behind the cardviews(the parts of RecyclerView).
+    private ArrayList<ListCard> messageCardList;        //
+
     private CalcKidsApplication app;
-    private ArrayList<ListCard> messageCardList;
     private ArrayList<Message> messagesList;
     private boolean isModify;
 
@@ -43,6 +43,7 @@ public class Messages extends AppCompatActivity {
         initializeRecycler();
     }
 
+    //Initialize the part of RecyclerView, and load the list of message from the server.
     private void initializeRecycler() {
 
         messageCardList = new ArrayList<ListCard>();
@@ -55,6 +56,7 @@ public class Messages extends AppCompatActivity {
         loadList();
     }
 
+
     private void loadList() {
         messageCardList.add(new ListCard("date", "from","subject",""));
         User user;
@@ -63,15 +65,20 @@ public class Messages extends AppCompatActivity {
         try {
             app.messageService.getMessageByDest(user.getId())
                     .enqueue(new Callback<List<Message>>() {
-                        @RequiresApi(api = Build.VERSION_CODES.O)
                         @Override
                         public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
-                            if (!response.isSuccessful()) finish();
+                            if (!response.isSuccessful()) {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        "There is problem with the messages",
+                                        Toast.LENGTH_LONG).show();
+                                finish();
+                            }
 
                             messagesList = (ArrayList<Message>) response.body();
                             for (Message message : messagesList){
                                 ListCard card = new ListCard(
-                                        message.getToday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                                        message.getToday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),//print only date
                                         message.getSender_name(),
                                         message.getSubject(),
                                         "",
@@ -97,7 +104,7 @@ public class Messages extends AppCompatActivity {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    //Define all CarView in the recyclerview to be a button that open all the message.
     public void onClick(View v){
 
         CardView c = (CardView) v;
@@ -109,13 +116,14 @@ public class Messages extends AppCompatActivity {
                 isModify = true;
             }
             Intent intent = new Intent(Messages.this, MessagePresent.class);
-            intent.putExtra("content", mc);
+            intent.putExtra("content", mc);//pass to the next activity the message object.
             startActivity(intent);
         }
-        else ;
+        else ; //for the top of list- has been define to be a title.
     }
 
     @Override
+    //Redefine the back pressed to save the change in the message- if there was read.
     public void onBackPressed(){
         if (isModify){
             app.messageService.updateIsRead(messagesList).enqueue(new Callback<String>() {

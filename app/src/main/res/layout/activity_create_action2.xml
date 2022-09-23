@@ -33,7 +33,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="55dp"
         android:gravity="top"
         android:orientation="vertical"
@@ -45,30 +45,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Create transaction"
+            android:text="Expense"
             android:textSize="18sp" />
 
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal">
-<!--            android:checkedButton="@id/radio_income"-->
-            <RadioButton
-                android:layout_width="100dp"
-                android:text="Income"
-                android:id="@+id/radio_income"
-                android:layout_height="match_parent"
-                android:onClick="radioActionClick"/>
-            <RadioButton
-                android:layout_width="100dp"
-                android:id="@+id/radio_expense"
-                android:text="Expense"
-                android:layout_height="match_parent"
-                android:onClick="radioActionClick"/>
-        </RadioGroup>
 
         <EditText
             android:id="@+id/amount_action"
@@ -84,7 +65,7 @@
             android:id="@+id/execute_action"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/roundedbutton"
             android:gravity="start"
             android:padding="0dp"
@@ -99,7 +80,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="Create Investment"
             android:textSize="18sp" />
@@ -110,7 +91,7 @@
             android:layout_height="25dp"
 
             android:orientation="horizontal">
-<!--            android:checkedButton="@id/radio_long"-->
+            <!--            android:checkedButton="@id/radio_long"-->
             <RadioButton
                 android:layout_width="100dp"
                 android:text="Long"
@@ -151,40 +132,9 @@
             app:backgroundTint="@color/dark_gray"
             android:onClick="investClick"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:text="Create loan"
-            android:textSize="18sp" />
 
 
-        <EditText
-            android:id="@+id/amount_loan"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/rounded_white"
-            android:hint="@string/amount"
-            android:paddingLeft="10dp"
-            android:inputType="numberDecimal"/>
 
-        <Button
-            android:id="@+id/execute_loan"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/roundedbutton"
-            android:gravity="start"
-            android:padding="0dp"
-            android:paddingStart="100dp"
-            android:paddingEnd="100dp"
-            android:text="@string/execute"
-            android:textColor="@color/white"
-            android:textSize="10dp"
-            app:backgroundTint="@color/dark_gray"
-            android:onClick="loanClick"/>
 
 
     </LinearLayout>

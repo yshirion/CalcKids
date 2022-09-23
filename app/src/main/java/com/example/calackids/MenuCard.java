@@ -1,11 +1,10 @@
 package com.example.calackids;
 
-
+// Card for menu, hold the string and image to show, and the class to pass by pressing.
 public class MenuCard {
     private String card_text;
     private int image_id;
     public Class<?> activity;
-
 
     public MenuCard(String textId, int imageId, Class<?> activity){
         card_text = textId;

@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button signIn;
     private EditText userBox, passwordBox;
-    private String message ="";
-    CalcKidsApplication app;
+    CalcKidsApplication app; // The object of all app to manage al activities (in every activity we define it).
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +37,21 @@ public class MainActivity extends AppCompatActivity {
         passwordBox = findViewById(R.id.mainPassword);
     }
 
+    //Set 'sign in' button.
     public void onClick(View v) {
         String userName = userBox.getText().toString().trim();
         String password = passwordBox.getText().toString().trim();
+        //Check validation of the fields.
         if (userName.isEmpty() || password.isEmpty())
             Toast.makeText(getApplicationContext(), getString(R.string.fillAll), Toast.LENGTH_SHORT).show();
-        else
+        else // Check with the server if this user exist, and his password OK.
             ifUserExist(userName,password);
     }
 
+    //Check the details, if its correct, enter to his corresponding activity.
     public void ifUserExist(String userName, String password) {
         app = (CalcKidsApplication) getApplication();
+        //Create User object base on the username and password, and check it with the server.
         app.userService
                 .checkUser(userName,password)
                 .enqueue(new Callback<User>() {
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), getString(R.string.erroruserpass), Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Class<?> activity = defineActivity(response.body());
+                    Class<?> activity = defineActivity(response.body());//Define activity base on the type of user.
 //                            "Welcome "+ response.body().getFirstName()
 //                             + " " + response.body().getLast_name();
                     Toast.makeText(
@@ -66,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
                             getString(R.string.welcome,response.body().getFirstName(), response.body().getLast_name()),
                             Toast.LENGTH_SHORT).show();
 
+                    // Reset the fields to the next time (and, of course, to avoid save the details of user).
                     userBox.setText("");
                     passwordBox.setText("");
+                    // Enter to app base on type of user.
                     Intent intent = new Intent(MainActivity.this, activity);
                     startActivity(intent);
                 }
@@ -80,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Define his activity- parent main or child main, base on the type of user.
     private Class<?> defineActivity(User user) {
         app = (CalcKidsApplication) getApplication();
         if (user.isParent()) {
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Set the register buttons - enter to the corresponding register activity.
     public void registerClick(View view){
         Class<?> c = null;
         if (view.getId() == R.id.newFamily) c = Register_family.class;

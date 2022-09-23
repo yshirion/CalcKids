@@ -8,17 +8,14 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-
 import java.lang.reflect.Type;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
+//Class of retrofit manage the network.
 public class RetrofitService {
 
     private Retrofit retrofit;
@@ -29,6 +26,7 @@ public class RetrofitService {
     }
 
 
+    // For deserialize the date from the server.
     private static final Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
         @Override
         public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
@@ -37,11 +35,12 @@ public class RetrofitService {
     }).setPrettyPrinting()
             .registerTypeAdapter(LocalDateTime.class, new LocalDateAdapter()).create();
 
-//    Gson gson = new GsonBuilder()
-//            .setPrettyPrinting()
-//            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-//            .create();
+    //    Gson gson = new GsonBuilder()
+    //            .setPrettyPrinting()
+    //            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+    //            .create();
 
+    //initialize the finally object.
     private void initializeRetrofit() {
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.100.2:9090/")

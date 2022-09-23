@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.ArrayList;
-
+//Adapter of RecyclerView for the lists of messages and actions.
 public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.ExampleViewHolder>{
     private ArrayList<ListCard> mExampleList;
 
+    //Inner class for the objects in the Recyclerview.
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public TextView date_text;
         public TextView amount_text;
         public TextView type_text;
         public TextView end_text;
-
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
@@ -43,9 +43,11 @@ public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.Exampl
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
         ListCard currentItem = mExampleList.get(position);
+        // Set the first card in list to be the "title".
         if (position == 0) holder.itemView.setLayoutParams(
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
         paintCard(currentItem, holder);
+        //
 
         holder.date_text.setText(currentItem.getDate());
         holder.amount_text.setText(currentItem.getAmount_from());
@@ -56,18 +58,19 @@ public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.Exampl
     }
 
     private void paintCard(ListCard currentItem, ExampleViewHolder holder) {
+        // For loans, investments, and read messages.
         holder.itemView.setBackgroundResource(R.drawable.rounded_white);
+        //if we in balance (list of actions), paint the positive with green and negative with red.
         if (currentItem.isBalance){
             if (currentItem.isPositive)
                 holder.itemView.setBackgroundResource(R.drawable.rounded_green);
             else
                 holder.itemView.setBackgroundResource(R.drawable.rounded_red);
         }
+        //for not read message.
         else if (currentItem.isMessage){
             if (!currentItem.isReaded) holder.itemView.setBackgroundResource(R.drawable.rounded_read);
         }
-
-
     }
 
     @Override

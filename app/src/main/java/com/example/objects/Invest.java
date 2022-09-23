@@ -11,7 +11,7 @@ public class Invest extends Action {
     private double currentAmount, interest;
     private LocalDateTime end;
     private LocalDateTime updateTime;
-    boolean longTerm;
+    boolean longTerm; //if the investment is to long term or short.
 
     public Invest() {
     }

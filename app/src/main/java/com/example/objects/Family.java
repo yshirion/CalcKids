@@ -3,7 +3,7 @@ package com.example.objects;
 public class Family {
     long fId;
     String name;
-    double loanInterest, investLongInterest, investShortInterest;
+    double loanInterest, investLongInterest, investShortInterest; // percents of interest for each one.
     final double MIN_INTEREST = 0.1;
 
     public Family(String name, long fId) {

@@ -18,7 +18,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +28,17 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class StatePresent extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private CalcKidsApplication app;
+
+    private RecyclerView mRecyclerView;                 // RecyclerView and his tools:
+    private RecyclerView.Adapter mAdapter;              // Adapter, manager, and list of objects
+    private RecyclerView.LayoutManager mLayoutManager;  // behind the cardviews(the parts of RecyclerView).
+    private ArrayList<ListCard> actionCardList;         //
+
     private ArrayList<Action> actionList;
     private ArrayList<Invest> investList;
     private ArrayList<Loan> loansList;
-    private ArrayList<ListCard> actionCardList;
+
     private TextView total, title;
 
     @Override
@@ -44,12 +46,14 @@ public class StatePresent extends AppCompatActivity {
         app = (CalcKidsApplication) getApplication();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state);
+
         total = (TextView) findViewById(R.id.total);
         title = (TextView) findViewById(R.id.title_list_activity);
 
         initializeRecycler();
     }
 
+    //Initialize the part of RecyclerView, and load the list of message from the server.
     private void initializeRecycler() {
 
         actionCardList = new ArrayList<ListCard>();
@@ -62,7 +66,10 @@ public class StatePresent extends AppCompatActivity {
         loadList();
     }
 
+    // General method to decide which corresponding method use for current entry.
     private void loadList() {
+        // Get the information from the previous activity, which activity should to be:
+        // for action, investment or loan.
         Intent intent = getIntent();
         String whichActivity = (String) intent.getSerializableExtra("whichActivity");
 
@@ -72,10 +79,13 @@ public class StatePresent extends AppCompatActivity {
         else  loadListLoan();
     }
 
+    // Load list of all actions belong to current user.
     private void loadListBalance() {
-        actionCardList.add(new ListCard("date", "amount","type",""));
         title.setText(getString(R.string.balance));
+        // Set the title of list
+        actionCardList.add(new ListCard("date", "amount","type",""));
         User user  = app.currentChildUser;
+        //get the list of actions according to current user, and create listcard for each action.
         try {
             app.actionService.getActions(user.getId())
                     .enqueue(new Callback<List<Action>>() {
@@ -94,11 +104,13 @@ public class StatePresent extends AppCompatActivity {
                                     if (act.isPositive()) card.isPositive =true;
                                     actionCardList.add(card);
                                 }
+                                // Check the current balance of this user.
                                 app.userService.getById(user.getId()).enqueue(new Callback<User>() {
                                     @Override
                                     public void onResponse(Call<User> call, Response<User> response) {
                                         if (response.isSuccessful()){
-                                            total.setText(String.valueOf(response.body().getBalance())+ " $");
+                                            //if the answer is good, set the total of balance, and the list.
+                                            total.setText(String.format("%.3f",response.body().getBalance()) + " $");
                                             mRecyclerView.setAdapter(mAdapter);
                                         }
                                     }
@@ -122,10 +134,12 @@ public class StatePresent extends AppCompatActivity {
         }
     }
 
+    // Load list of all investments belong to current user.
     private void loadListInvest(){
         actionCardList.add(new ListCard("start", "amount","interest","end invest"));
         title.setText(getString(R.string.invest));
         User user  = app.currentChildUser;
+        //get the list of actions according to current user, and create listcard for each action.
         try {
             app.actionService.getInvest(user.getId())
                     .enqueue(new Callback<List<Invest>>() {
@@ -144,7 +158,7 @@ public class StatePresent extends AppCompatActivity {
                                 sum += invest.getCurrentAmount();
                                 actionCardList.add(card);
                             }
-                            total.setText(String.format("%.4f",sum) + " $");
+                            total.setText(String.format("%.3f",sum) + " $");
                             mRecyclerView.setAdapter(mAdapter);
                         }
                         @Override
@@ -162,10 +176,12 @@ public class StatePresent extends AppCompatActivity {
         }
     }
 
+    // Load list of all loans belong to current user.
     private void loadListLoan() {
         actionCardList.add(new ListCard("start", "amount","interest",""));
         title.setText(getString(R.string.loan));
         User user  = app.currentChildUser;
+        //get the list of actions according to current user, and create listcard for each action.
         try {
             app.actionService.getLoans(user.getId())
                     .enqueue(new Callback<List<Loan>>() {
@@ -184,7 +200,7 @@ public class StatePresent extends AppCompatActivity {
                                 sum += loan.getCurrentAmount();
                                 actionCardList.add(card);
                             }
-                            total.setText(String.format("%.4f", sum) + " $");
+                            total.setText(String.format("%.3f", sum) + " $");
                             mRecyclerView.setAdapter(mAdapter);
                         }
                         @Override
@@ -202,6 +218,7 @@ public class StatePresent extends AppCompatActivity {
         }
     }
 
+    //Set onClick to none, because we the card in those cases shouldn't be a button.
     public void onClick(View v){
     }
 

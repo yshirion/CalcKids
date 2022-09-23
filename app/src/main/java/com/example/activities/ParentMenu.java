@@ -59,8 +59,10 @@ public class ParentMenu extends AppCompatActivity {
         getChildren();
     }
 
+    //Get from server the list of children to show in the father menu.
     private void getChildren() {
         app = (CalcKidsApplication) getApplication();
+        //Get all children base on the family id.
         app.userService.findByFamily(app.currentParentUser.getFamily_id())
                 .enqueue(new Callback<>() {
                     @Override
@@ -91,7 +93,6 @@ public class ParentMenu extends AppCompatActivity {
                 });
     }
 
-
     //Unique result for press on each card.
     public void onClick(View view){
         app = (CalcKidsApplication) getApplication();
@@ -107,6 +108,8 @@ public class ParentMenu extends AppCompatActivity {
         intent.putExtra("childrenList", childUsers);
         startActivity(intent);
     }
+
+    //Set the title of app to show the name, username etc.
     public String setUserTitle(){
         app = (CalcKidsApplication) getApplication();
         String parent = getString(R.string.hello,
@@ -116,7 +119,9 @@ public class ParentMenu extends AppCompatActivity {
                 app.currentParentUser.getFamily_id());
         return parent;
     }
+
     @Override
+    //Redefine the 'back pressed' to reset the user of app.
     public void onBackPressed(){
         app = (CalcKidsApplication) getApplication();
         app.currentParentUser = null;

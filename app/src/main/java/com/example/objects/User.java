@@ -124,6 +124,7 @@ public class User implements Serializable {
         return parent;
     }
 
+    //Overide it to show in spinner the name of user.
     @Override
     public String toString() {
         return first_name;

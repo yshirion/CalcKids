@@ -13,9 +13,11 @@ public interface UserService {
     @GET("user/{id}")
     Call<User> getById(@Path("id") long userId);
 
+    //for message
     @GET("user/parent/{fid}")
     Call<User> getParent(@Path("fid") long fid);
 
+    //get all children for menu of parent and send message
     @GET("user/family/{id}")
     Call<List<User>> findByFamily(@Path("id") long family_id);
 

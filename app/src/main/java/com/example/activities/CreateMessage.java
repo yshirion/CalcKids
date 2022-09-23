@@ -26,12 +26,15 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class CreateMessage extends AppCompatActivity {
     CalcKidsApplication app;
+    //Spinner and its adapter to load the list of possible destinations.
     private Spinner spinner;
+    private ArrayAdapter<User> adapter;
+    private ArrayList<User> children;
+    //
     private EditText subject, textField;
     private Button close;
     private ImageButton send;
-    private ArrayAdapter<User> adapter;
-    private ArrayList<User> children;
+
     private User receiver, sender;
     private Message message;
 
@@ -42,19 +45,21 @@ public class CreateMessage extends AppCompatActivity {
         setContentView(R.layout.activity_create_message);
         subject = (EditText) findViewById(R.id.subject);
         textField = (EditText) findViewById(R.id.textField);
-        defineAsSubActivity();
+
+        defineAsSubActivity();//Define activity to be small and on parent.
         setNamesList();
         setSpinner();
         setClose();
         setSend();
     }
 
+    //Set the send button to create message object base on the details in activity.
     private void setSend() {
         send = (ImageButton) findViewById(R.id.send);
 
             send.setOnClickListener(v -> {
-                if (textField.getText().toString().trim().equals("") ||
-                        subject.getText().toString().trim().equals("")) {
+                if (textField.getText().toString().trim().equals("") ||   //
+                        subject.getText().toString().trim().equals("")) { //can't send empty message or empty subject.
                     Toast.makeText(getApplicationContext(), getString(R.string.fillAll), Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -78,6 +83,7 @@ public class CreateMessage extends AppCompatActivity {
         });
     }
 
+    //Define the list of spinner, and his adapter, and what should happen when is chose some element.
     private void setSpinner() {
         spinner = (Spinner) findViewById(R.id.spinner);
         adapter = new ArrayAdapter<User>(CreateMessage.this, android.R.layout.simple_spinner_item, children);
@@ -92,9 +98,12 @@ public class CreateMessage extends AppCompatActivity {
         });
     }
 
+    //Set children list by the list was passed by the previous activity.
     private void setNamesList() {
         Intent intent = getIntent();
         children = (ArrayList<User>) intent.getSerializableExtra("childrenList");
+
+        //Define the sender base on recognize the type of user(parent or child).
         if (children.size() > 0 && children.get(0).isParent())
             sender = app.currentChildUser;
         else
@@ -110,6 +119,7 @@ public class CreateMessage extends AppCompatActivity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.7));
     }
 
+    //Send the message created by send button(setSend method) and check the result.
     private void sendMessage() {
         app.messageService.saveMessage(message)
                 .enqueue(new Callback<String>() {
