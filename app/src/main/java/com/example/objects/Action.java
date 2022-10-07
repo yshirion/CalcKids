@@ -16,6 +16,7 @@ public class Action {
     }
 
     public Action(boolean positive, String type, double amount, long user) {
+
         this.positive = positive;
         this.type = type;
         this.amount = amount;

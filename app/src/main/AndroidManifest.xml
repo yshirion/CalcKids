@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".CalcKidsApplication"
+        android:name="com.example.calackids.CalcKidsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,18 +19,18 @@
         <activity
             android:name="com.example.activities.MessagePresent"
             android:exported="false"
-            android:theme="@style/Theme.CalcKids.NoActionBar"/>
+            android:theme="@style/AppDialogTheme"/>
         <activity
             android:name="com.example.activities.Messages"
             android:theme="@style/Theme.CalcKids.NoActionBar"
             android:exported="false" />
         <activity
             android:name="com.example.activities.CreateAction"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/AppDialogTheme" />
         <activity
             android:name="com.example.activities.SettingsActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.CalcKids.NoActionBar" />
         <activity
             android:name="com.example.activities.CreateMessage"
@@ -42,7 +42,18 @@
         <activity
             android:name="com.example.activities.StatePresent"
             android:exported="false"
-            android:label="@string/title_activity_balance"
+            android:theme="@style/Theme.CalcKids.NoActionBar" />
+        <activity
+            android:name="com.example.activities.ActionPresent"
+            android:exported="false"
+            android:theme="@style/Theme.CalcKids.NoActionBar" />
+        <activity
+            android:name="com.example.activities.InvestPresent"
+            android:exported="false"
+            android:theme="@style/Theme.CalcKids.NoActionBar" />
+        <activity
+            android:name="com.example.activities.LoanPresent"
+            android:exported="false"
             android:theme="@style/Theme.CalcKids.NoActionBar" />
         <activity
             android:name="com.example.activities.ParentMenu"

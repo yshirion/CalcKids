@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-// Adapter to parse the LocalDateTime to pass it in to the server.
+// Adapter to parse the LocalDateTime to pass it in to the server.a
 class LocalDateAdapter implements JsonSerializer<LocalDateTime> {
 
     @RequiresApi(api = Build.VERSION_CODES.O)

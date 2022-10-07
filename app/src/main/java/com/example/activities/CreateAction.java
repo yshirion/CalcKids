@@ -33,7 +33,7 @@ public class CreateAction extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         app = (CalcKidsApplication) getApplication();
         super.onCreate(savedInstanceState);
-        if (app.currentParentUser == null)
+        if (app.currentParentUser == null) //If this is the son, open other activity for limited options.
             setContentView(R.layout.activity_create_action2);
         else setContentView(R.layout.activity_create_action);
         defineAsSubActivity(); //Create this activity *small* and *on* his parent.
@@ -141,7 +141,10 @@ public class CreateAction extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                System.out.println(t);
+                Toast.makeText(
+                        getApplicationContext(),
+                        getString(R.string.networkerror),
+                        Toast.LENGTH_LONG).show();
             }
         });
 

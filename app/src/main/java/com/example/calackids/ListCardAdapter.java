@@ -1,6 +1,5 @@
 package com.example.calackids;
 
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,56 +7,59 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.ArrayList;
+
 //Adapter of RecyclerView for the lists of messages and actions.
-public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.ExampleViewHolder>{
-    private ArrayList<ListCard> mExampleList;
-
-    //Inner class for the objects in the Recyclerview.
-    public static class ExampleViewHolder extends RecyclerView.ViewHolder {
-        public TextView date_text;
-        public TextView amount_text;
-        public TextView type_text;
-        public TextView end_text;
-
-        public ExampleViewHolder(View itemView) {
-            super(itemView);
-            date_text = (TextView) itemView.findViewById(R.id.date_view);
-            amount_text = (TextView) itemView.findViewById(R.id.amount_from);
-            type_text = (TextView) itemView.findViewById(R.id.subject_type);
-            end_text = (TextView) itemView.findViewById(R.id.end_read);
-        }
-
-    }
+public class ListCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    private static final int TYPE_HEADER = 0;
+    private static final int TYPE_LIST = 1;
+    private ArrayList<ListCard> mRecyclerList;
 
     public ListCardAdapter(ArrayList<ListCard> exampleList) {
-        mExampleList = exampleList;
+        mRecyclerList = exampleList;
     }
 
     @Override
-    public ListCardAdapter.ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout, parent, false);
-        ListCardAdapter.ExampleViewHolder evh = new ListCardAdapter.ExampleViewHolder(v);
-        return evh;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v;
+        if (viewType == TYPE_HEADER){
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.head_layout, parent, false);
+            return new HeaderHolder(v);
+        }
+        else if (viewType == TYPE_LIST) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout, parent, false);
+            return new RecyclerViewHolder(v);
+        }
+
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        ListCard currentItem = mExampleList.get(position);
-        // Set the first card in list to be the "title".
-        if (position == 0) holder.itemView.setLayoutParams(
-                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
-        paintCard(currentItem, holder);
-        //
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ListCard currentItem;
 
-        holder.date_text.setText(currentItem.getDate());
-        holder.amount_text.setText(currentItem.getAmount_from());
-        holder.type_text.setText(currentItem.getSubject_type());
-        holder.end_text.setText(currentItem.getEnd_read());
-        holder.itemView.setTag(currentItem);
+        if (holder instanceof HeaderHolder){
+            holder.itemView.setBackgroundResource(R.drawable.rounded_white);
+            HeaderHolder headHolder = (HeaderHolder) holder;
+            headHolder.date_title.setText("Date");
+            headHolder.amount_from_title.setText("Date");
+            headHolder.subject_type_title.setText("Date");
+            headHolder.end_title.setText("Date");
+        }
 
+        if (holder instanceof RecyclerViewHolder) {
+            RecyclerViewHolder listHolder = (RecyclerViewHolder) holder;
+            currentItem = mRecyclerList.get(position - 1);
+            paintCard(currentItem, listHolder);
+            listHolder.date_text.setText(currentItem.getDate());
+            listHolder.amount_text.setText(currentItem.getAmount_from());
+            listHolder.type_text.setText(currentItem.getSubject_type());
+            listHolder.end_text.setText(currentItem.getEnd_read());
+            listHolder.itemView.setTag(currentItem);
+
+        }
     }
 
-    private void paintCard(ListCard currentItem, ExampleViewHolder holder) {
+    private void paintCard(ListCard currentItem, RecyclerViewHolder holder){
         // For loans, investments, and read messages.
         holder.itemView.setBackgroundResource(R.drawable.rounded_white);
         //if we in balance (list of actions), paint the positive with green and negative with red.
@@ -75,6 +77,50 @@ public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.Exampl
 
     @Override
     public int getItemCount() {
-        return mExampleList.size();
+        return mRecyclerList.size()+1;
+    }
+
+    public ListCard remove(int position){
+        ListCard item = mRecyclerList.get(position);
+        mRecyclerList.remove(position);
+        return item;
+    }
+
+    public void readd(ListCard item, int position){
+        mRecyclerList.add(position, item);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position == 0)
+            return TYPE_HEADER;
+        return TYPE_LIST;
+    }
+
+    //Inner class for the objects in the Recyclerview.
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
+        int viewType;
+        TextView date_text, amount_text, type_text, end_text;
+
+        public RecyclerViewHolder(View itemView) {
+            super(itemView);
+            date_text = (TextView) itemView.findViewById(R.id.date_view);
+            amount_text = (TextView) itemView.findViewById(R.id.amount_from);
+            type_text = (TextView) itemView.findViewById(R.id.subject_type);
+            end_text = (TextView) itemView.findViewById(R.id.end_read);
+        }
+    }
+    private class HeaderHolder extends RecyclerView.ViewHolder{
+        TextView date_title, amount_from_title, subject_type_title, end_title;
+
+        public HeaderHolder(@NonNull View itemView) {
+            super(itemView);
+            date_title = (TextView) itemView.findViewById(R.id.date_view_title);
+            amount_from_title = (TextView) itemView.findViewById(R.id.amount_from_title);
+            subject_type_title = (TextView) itemView.findViewById(R.id.subject_type_title);
+            end_title = (TextView) itemView.findViewById(R.id.end_read_title);
+
+        }
     }
 }

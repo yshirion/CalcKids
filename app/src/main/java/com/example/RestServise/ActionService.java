@@ -6,8 +6,10 @@ import com.example.objects.Loan;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -33,4 +35,11 @@ public interface ActionService {
 
     @POST("/invest/save")
     Call<String> saveInvest(@Body Invest invest);
+
+    @HTTP(method = "DELETE", path = "/invest/delete", hasBody = true)
+    Call<String> deleteInvest(@Body List<Invest> invest);
+
+    @HTTP(method = "DELETE", path = "/loan/delete", hasBody = true)
+    Call<String> deleteLoan(@Body List<Loan> loan);
+
 }

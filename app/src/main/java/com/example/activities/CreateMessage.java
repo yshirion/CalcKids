@@ -141,7 +141,10 @@ public class CreateMessage extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
-
+                        Toast.makeText(
+                                getApplicationContext(),
+                                getString(R.string.networkerror),
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }

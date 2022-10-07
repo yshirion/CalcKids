@@ -5,6 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -88,7 +90,10 @@ public class ParentMenu extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<User>> call, Throwable t) {
-
+                        Toast.makeText(
+                                getApplicationContext(),
+                                getString(R.string.networkerror),
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }

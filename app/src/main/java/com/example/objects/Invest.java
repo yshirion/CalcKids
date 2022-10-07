@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Invest extends Action {
+    private long iid;
     private final int SHORT = 6;
     private final int LONG = 12;
     private double currentAmount, interest;
@@ -19,6 +20,7 @@ public class Invest extends Action {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Invest(boolean positive, String type, double amount, long user, boolean longTerm) {
         super(positive, type, amount, user);
+        iid = 0;
         this.longTerm = longTerm;
         currentAmount = amount;
         updateTime = LocalDateTime.now();
@@ -29,14 +31,23 @@ public class Invest extends Action {
         end = LocalDateTime.now().plusMonths(gap);
     }
 
-    public Invest(boolean positive, String type, double amount,long user, double currentAmount,
+    public Invest(long id, boolean positive, String type, double amount,long user, double currentAmount,
                   double interest, LocalDateTime end, boolean longTerm, LocalDateTime updateTime) {
         super(positive, type, amount, user);
+        this.iid = id;
         this.currentAmount = currentAmount;
         this.interest = interest;
         this.end = end;
         this.longTerm = longTerm;
         this.updateTime = updateTime;
+    }
+
+    public long getIid() {
+        return iid;
+    }
+
+    public void setIid(long iid) {
+        this.iid = iid;
     }
 
     public int getSHORT() {

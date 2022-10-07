@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHolder> {
     private ArrayList<MenuCard> mExampleList;
 
-    //Inner class for the objects in the Recyclerview.
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;

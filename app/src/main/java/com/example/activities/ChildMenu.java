@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -54,9 +52,9 @@ public class ChildMenu extends AppCompatActivity {
         //Add all cards with their title, icon, and destination activity.
         cardsList.add(new MenuCard(getString(R.string.mission), R.drawable.mission, BlankforWhile.class));//Still not working until i will care of that.
         cardsList.add(new MenuCard(getString(R.string.request), R.drawable.request, CreateAction.class));
-        cardsList.add(new MenuCard(getString(R.string.balance), R.drawable.balance, StatePresent.class));
-        cardsList.add(new MenuCard(getString(R.string.invest), R.drawable.invest,StatePresent.class));
-        cardsList.add(new MenuCard(getString(R.string.loan), R.drawable.loan,StatePresent.class));
+        cardsList.add(new MenuCard(getString(R.string.balance), R.drawable.balance, ActionPresent.class));
+        cardsList.add(new MenuCard(getString(R.string.invest), R.drawable.invest,InvestPresent.class));
+        cardsList.add(new MenuCard(getString(R.string.loan), R.drawable.loan,LoanPresent.class));
         cardsList.add(new MenuCard(getString(R.string.message), R.drawable.message, Messages.class));
         cardsList.add(new MenuCard(getString(R.string.send), R.drawable.send_message, CreateMessage.class));
 

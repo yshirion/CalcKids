@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="6"
-    tools:context="com.example.activities.StatePresent">
+    android:weightSum="6">
 
     <LinearLayout
         android:id="@+id/linearLayout7"
