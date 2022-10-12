@@ -9,6 +9,9 @@ import com.example.RestServise.FamilyService;
 import com.example.RestServise.MessageService;
 import com.example.RestServise.RetrofitService;
 import com.example.RestServise.UserService;
+
+import java.util.ArrayList;
+
 import retrofit2.Retrofit;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -27,5 +30,9 @@ public class CalcKidsApplication extends Application {
     // If parent enter to his son page, both of them initialized.
     public User currentChildUser;
     public User currentParentUser;
+
+    public ArrayList<User> childUsers;
+    public ArrayList<MenuCard> cardsList;
+
 
 }

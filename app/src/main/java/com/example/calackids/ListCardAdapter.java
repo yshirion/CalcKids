@@ -13,6 +13,9 @@ public class ListCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_LIST = 1;
     private ArrayList<ListCard> mRecyclerList;
+    public boolean isMessage;
+    public boolean isInvest;
+    public boolean isLoan;
 
     public ListCardAdapter(ArrayList<ListCard> exampleList) {
         mRecyclerList = exampleList;
@@ -41,9 +44,19 @@ public class ListCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.itemView.setBackgroundResource(R.drawable.rounded_white);
             HeaderHolder headHolder = (HeaderHolder) holder;
             headHolder.date_title.setText("Date");
-            headHolder.amount_from_title.setText("Date");
-            headHolder.subject_type_title.setText("Date");
-            headHolder.end_title.setText("Date");
+            if (isMessage) {
+                headHolder.amount_from_title.setText("From");
+                headHolder.subject_type_title.setText("Subject");
+            }
+            else {
+                headHolder.amount_from_title.setText("Amount");
+                if (!isInvest && ! isLoan)
+                    headHolder.subject_type_title.setText("Type");
+                else {
+                    headHolder.subject_type_title.setText("Interest");
+                    if (isInvest) headHolder.end_title.setText("End");
+                }
+            }
         }
 
         if (holder instanceof RecyclerViewHolder) {

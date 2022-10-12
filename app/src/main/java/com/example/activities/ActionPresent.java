@@ -56,7 +56,7 @@ public class ActionPresent extends StatePresent{
                                 public void onResponse(Call<User> call, Response<User> response) {
                                     if (response.isSuccessful()){
                                         //if the answer is good, set the total of balance, and the list.
-                                        total.setText(String.format("%.3f",response.body().getBalance()) + " $");
+                                        total.setText(String.format("%.1f",response.body().getBalance()) + " $");
                                         mRecyclerView.setAdapter(mAdapter);
                                     }
                                 }

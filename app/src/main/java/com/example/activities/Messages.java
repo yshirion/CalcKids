@@ -26,10 +26,9 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Messages extends AppCompatActivity {
     private RecyclerView mRecyclerView;                 // RecyclerView and his tools:
-    private RecyclerView.Adapter mAdapter;              // Adapter, manager, and list of objects
+    private ListCardAdapter mAdapter;              // Adapter, manager, and list of objects
     private RecyclerView.LayoutManager mLayoutManager;  // behind the cardviews(the parts of RecyclerView).
     private ArrayList<ListCard> messageCardList;        //
-
     private CalcKidsApplication app;
     private ArrayList<Message> messagesList;
     private boolean isModify;
@@ -58,7 +57,7 @@ public class Messages extends AppCompatActivity {
 
 
     private void loadList() {
-        messageCardList.add(new ListCard("date", "from","subject",""));
+        mAdapter.isMessage = true;
         User user;
         if (app.currentChildUser == null) user = app.currentParentUser;
         else user = app.currentChildUser;

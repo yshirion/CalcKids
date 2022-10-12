@@ -43,7 +43,7 @@ public class RetrofitService {
     //initialize the finally object.
     private void initializeRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.2:9090/")
+                .baseUrl("http://172.20.10.3:9090/")//("http://192.168.100.2:9090/")
                 .addConverterFactory(ScalarsConverterFactory//For getting String from server.
                         .create())
                 .addConverterFactory(GsonConverterFactory//For getting Localdate from server(parse string to object).

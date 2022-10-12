@@ -4,7 +4,9 @@ import com.example.objects.User;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -21,6 +23,9 @@ public interface UserService {
     @GET("user/family/{id}")
     Call<List<User>> findByFamily(@Path("id") long family_id);
 
+    @GET("user/changeParent/{id}")
+    Call<String> changeToParent(@Path("id") long id);
+
     @GET("user/check/{name}/{password}")
     Call<User> checkUser(@Path("name") String name, @Path("password") String password);
 
@@ -29,4 +34,7 @@ public interface UserService {
 
     @POST("user/saveParent")
     Call<String> saveParent(@Body User user);
+
+    @HTTP(method = "DELETE", path = "/user/deleteUser", hasBody = true)
+    Call<String> deleteUser(@Body User user);
 }

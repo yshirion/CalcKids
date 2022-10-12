@@ -1,11 +1,13 @@
 package com.example.activities;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -77,6 +79,7 @@ public class ChildMenu extends AppCompatActivity {
     public void onClick(View view) {
         CardView c = (CardView) view;
         MenuCard mc = (MenuCard) c.getTag();//The object behind CardView, that save in his 'tag'.
+
         if (mc.getActivity() == CreateMessage.class)
             defineParent(mc);//Child can send the message only for his parents.
         else //Start activity that related to this card.
@@ -85,11 +88,11 @@ public class ChildMenu extends AppCompatActivity {
             intent.putExtra("whichActivity", mc.getCard_text());//For title.
             startActivity(intent);
         }
+
     }
 
     //Set the tool bar with name, username, id and family id. if the parent in his child page- his username too.
     public String setUserTitle(){
-        app = (CalcKidsApplication) getApplication();
         String child = getString(R.string.hello,
                                 app.currentChildUser.getFirstName(),
                                 app.currentChildUser.getUser_name(),
@@ -137,8 +140,8 @@ public class ChildMenu extends AppCompatActivity {
     @Override
     //Redefine the 'back' button, to reset the app and cancel the user in this entry.
     public void onBackPressed(){
-        app = (CalcKidsApplication) getApplication();
         app.currentChildUser = null;
         finish();
     }
+
 }

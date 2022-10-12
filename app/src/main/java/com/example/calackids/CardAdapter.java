@@ -47,6 +47,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ExampleViewHol
         holder.mTextView1.setText(currentItem.getCard_text());
         holder.itemView.setTag(currentItem);
     }
+    public void remove(int position){
+        MenuCard item = mExampleList.get(position);
+        mExampleList.remove(position);
+    }
 
     @Override
     public int getItemCount() {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--XML implementation of Card Layout-->
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.calackids.MyCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:layout_gravity="center"
@@ -8,7 +10,7 @@
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
     android:onClick="onClick"
-    >
+    custom:onKeyLongPress="onLongPress">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,5 +43,5 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.example.calackids.MyCardView>
 

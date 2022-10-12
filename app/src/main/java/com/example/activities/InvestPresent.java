@@ -36,6 +36,7 @@ public class InvestPresent extends StatePresent{
     public void loadList(){
         title.setText(getString(R.string.invest));
         toRemove = new ArrayList<Invest>();
+        mAdapter.isInvest = true;
         User user  = app.currentChildUser;
         //get the list of actions according to current user, and create listcard for each action.
         try {

@@ -37,6 +37,7 @@ public class LoanPresent extends StatePresent{
     public void loadList() {
         title.setText(getString(R.string.loan));
         toRemove = new ArrayList<Loan>();
+        mAdapter.isLoan = true;
         User user  = app.currentChildUser;
         //get the list of actions according to current user, and create listcard for each action.
         try {
