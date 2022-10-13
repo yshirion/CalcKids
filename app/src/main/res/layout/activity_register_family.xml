@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:hint="First name" />
+                android:hint="@string/first_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_corners"
                 android:layout_height="wrap_content"
-                android:hint="Family name" />
+                android:hint="@string/family_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_corners"
                 android:layout_height="wrap_content"
-                android:hint="User name" />
+                android:hint="@string/user_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:hint="Password" />
+                android:hint="@string/password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:hint="Confirm password" />
+                android:hint="@string/confirm_password" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -118,7 +118,7 @@
         android:layout_marginTop="184dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="100dp"
-        android:text="submit"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

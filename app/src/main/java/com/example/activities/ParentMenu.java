@@ -159,8 +159,9 @@ public class ParentMenu extends AppCompatActivity {
         mAdapter.remove(position);
         //"refresh" the page
         finish();
-        Intent intent = new Intent(ParentMenu.this, ParentMenu.class);
-        startActivity(intent);
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 
     //The dialog that open while long press on some child

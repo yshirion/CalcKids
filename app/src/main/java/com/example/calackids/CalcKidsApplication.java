@@ -1,6 +1,7 @@
 package com.example.calackids;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import com.example.RestServise.ActionService;
@@ -31,8 +32,17 @@ public class CalcKidsApplication extends Application {
     public User currentChildUser;
     public User currentParentUser;
 
-    public ArrayList<User> childUsers;
-    public ArrayList<MenuCard> cardsList;
+    private static Context mContext;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mContext = this;
+    }
+
+    public static Context getContext(){
+        return mContext;
+    }
 
 
 }

@@ -64,5 +64,32 @@
     <string name="amount">Amount</string>
     <string name="length">Type: long/short</string>
     <string name="not_saved">not Saved</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="create_investment">Create Investment</string>
+    <string name="longinvest">Long</string>
+    <string name="shortinvest">Short</string>
+    <string name="create_loan">Create loan</string>
+    <string name="subject">Subject</string>
+    <string name="text">Text</string>
+    <string name="new_user_try_one_from_below">New user? try one from below:</string>
+    <string name="join_to_exist_family">Join to exist family</string>
+    <string name="create_new_family">Create new family</string>
+    <string name="startwelcome">Welcome</string>
+    <string name="first_name">First name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="family_id">Family ID</string>
+    <string name="family_name">Family name</string>
+    <string name="submit">submit</string>
+    <string name="set_percents">set percents</string>
+    <string name="save">Save</string>
+    <string name="to_delete">To delete this user:</string>
+    <string name="to_define_parent">To define this user as parent:</string>
+    <string name="create_transaction">Create transaction</string>
+    <string name="date">date</string>
+    <string name="from">from</string>
+    <string name="type">type</string>
+    <string name="interest">interest</string>
+    <string name="end">end</string>
 
 </resources>

@@ -18,10 +18,10 @@
             android:id="@+id/close_actions"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
             android:padding="0dp"
             android:text="X"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:strokeColor="@color/white"
             app:strokeWidth="0.5dp"
             android:onClick="closeClick"/>
@@ -47,7 +47,7 @@
             android:layout_height="20dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Expense"
+            android:text="@string/expense"
             android:textSize="18sp" />
 
 
@@ -58,7 +58,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_white"
             android:hint="@string/amount"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:inputType="numberDecimal"/>
 
         <Button
@@ -73,7 +74,7 @@
             android:paddingEnd="100dp"
             android:text="@string/execute"
             android:textColor="@color/white"
-            android:textSize="10dp"
+            android:textSize="11sp"
             app:backgroundTint="@color/dark_gray"
             android:onClick="actionClick"/>
 
@@ -82,7 +83,7 @@
             android:layout_height="20dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Create Investment"
+            android:text="@string/create_investment"
             android:textSize="18sp" />
 
 
@@ -94,14 +95,14 @@
             <!--            android:checkedButton="@id/radio_long"-->
             <RadioButton
                 android:layout_width="100dp"
-                android:text="Long"
+                android:text="@string/longinvest"
                 android:id="@+id/radio_long"
                 android:layout_height="match_parent"
                 android:onClick="radioInvestClick"/>
             <RadioButton
                 android:layout_width="100dp"
                 android:id="@+id/radio_short"
-                android:text="Short"
+                android:text="@string/shortinvest"
                 android:layout_height="match_parent"
                 android:onClick="radioInvestClick"/>
         </RadioGroup>
@@ -113,7 +114,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_white"
             android:hint="@string/amount"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:inputType="numberDecimal"/>
 
         <Button
@@ -128,7 +130,7 @@
             android:paddingEnd="100dp"
             android:text="@string/execute"
             android:textColor="@color/white"
-            android:textSize="10dp"
+            android:textSize="11sp"
             app:backgroundTint="@color/dark_gray"
             android:onClick="investClick"/>
 

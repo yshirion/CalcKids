@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">CalcKids</string>
+    <string name="action_settings">Settings</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="required">*this field requierd</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_open_screen_parent">Open_Screen_Parent</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <!--    titles-->
+    <string name="hello"><big>Hello %1$s!</big> user: %2$s id: %3$d fid: %4$d</string>
+    <string name="parent"><big>by user: %1$s</big></string>
+    <!--    -->
+
+    <!--    messages for user-->
+    <string name="welcome"> %2$s %1$s ברוך הבא </string>
+    <string name="networkerror">בעיית תקשורת!!</string>
+    <string name="fillAll">אנא מלא את כל השדות</string>
+    <string name="invalidValue">אנא מלא את כל השדות עם ערכים תקפים</string>
+    <string name="erroruserpass">השם משתמש או הסיסמה אינם נכונים.</string>
+    <string name="familyidnum">מזהה משפחה חייב להיות מספר</string>
+    <string name="passwordmtach">הסיסמאות אינן תואמות.</string>
+    <string name="savedChanges">השינויים נשמרו.</string>
+    <!--    -->
+
+    <!--    Strings for menu-->
+    <string name="logupsuccess">The log up was successful!</string>
+    <string name="message">הודעות</string>
+    <string name="mission">משימות</string>
+    <string name="request">בקשות</string>
+    <string name="balance">עו״ש</string>
+    <string name="loan">הלוואות</string>
+    <string name="invest">השקעות</string>
+    <string name="createinvest">יצירת השקעה </string>
+    <string name="createloan">יצירת הלוואה </string>
+    <string name="send">שלח הודעה</string>
+    <string name="settings">הגדרות</string>
+    <!---->
+
+    <!--    strings for settings-->
+    <string name="title_settings">הגדרת אחוזי הריבית</string>
+    <string name="loan_interest_title">%1$.2f אחוזי הריבית של הלוואה: </string>
+    <string name="long_interest_title">%1$.2f אחוזי הריבית של הקשעה ארוכת טווח: </string>
+    <string name="short_interest_title">%1$.2f אחוזי הריבית של השקעה קצרת טווח: </string>
+
+    <string name="private_balance">מצב חשבון:</string>
+    <string name="loans_title">מצב הלוואות עדכני:</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_balance">עו״ש</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password">סיסמה</string>
+    <string name="sign_in">Sign In</string>
+    <string name="user_name">שם משתמש</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="cantFind">Can\'t find father.</string>
+    <string name="createAction">יצירת פעולה:</string>
+    <string name="execute">בצע</string>
+    <string name="Type">Type: income/expense</string>
+    <string name="amount">סכום</string>
+    <string name="length">Type: long/short</string>
+    <string name="not_saved">לא נשמר</string>
+    <string name="income">הכנסה</string>
+    <string name="expense">הוצאה</string>
+    <string name="create_investment">יצירת השקעה</string>
+    <string name="longinvest">ארוך טווח</string>
+    <string name="shortinvest">קצר טווח</string>
+    <string name="create_loan">יצירת הלוואה</string>
+    <string name="subject">נושא</string>
+    <string name="text">תוכן</string>
+    <string name="new_user_try_one_from_below">משתמש חדש? תבחר אחת מהאפשרויות הבאות:</string>
+    <string name="join_to_exist_family">הצטרף למשפחה קיימת</string>
+    <string name="create_new_family">צור משפחה חדשה</string>
+    <string name="startwelcome">ברוך הבא!</string>
+    <string name="first_name">שם פרטי</string>
+    <string name="confirm_password">אימות סיסמה</string>
+    <string name="family_id">מזהה משפחה</string>
+    <string name="family_name">שם משפחה</string>
+    <string name="submit">הרשם</string>
+    <string name="set_percents">הגדרת אחוזי הריבית</string>
+    <string name="save">שמור</string>
+    <string name="to_delete">למחיקת משתמש זה:</string>
+    <string name="to_define_parent">להגדרת משתמש זה כהורה:</string>
+    <string name="create_transaction">יצירת פעולה</string>
+    <string name="date">תאריך</string>
+    <string name="from">שולח</string>
+    <string name="type">סוג</string>
+    <string name="interest">אחוז ריבית</string>
+    <string name="end">תאריך סיום</string>
+
+</resources>

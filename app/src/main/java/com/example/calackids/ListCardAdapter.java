@@ -1,7 +1,12 @@
 package com.example.calackids;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Application;
+import android.content.res.Resources;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +41,7 @@ public class ListCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ListCard currentItem;
@@ -43,18 +49,18 @@ public class ListCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof HeaderHolder){
             holder.itemView.setBackgroundResource(R.drawable.rounded_white);
             HeaderHolder headHolder = (HeaderHolder) holder;
-            headHolder.date_title.setText("Date");
+            headHolder.date_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.date));
             if (isMessage) {
-                headHolder.amount_from_title.setText("From");
-                headHolder.subject_type_title.setText("Subject");
+                headHolder.amount_from_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.from));
+                headHolder.subject_type_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.subject));
             }
             else {
-                headHolder.amount_from_title.setText("Amount");
+                headHolder.amount_from_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.amount));
                 if (!isInvest && ! isLoan)
-                    headHolder.subject_type_title.setText("Type");
+                    headHolder.subject_type_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.type));
                 else {
-                    headHolder.subject_type_title.setText("Interest");
-                    if (isInvest) headHolder.end_title.setText("End");
+                    headHolder.subject_type_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.interest));
+                    if (isInvest) headHolder.end_title.setText(CalcKidsApplication.getContext().getResources().getString(R.string.end));
                 }
             }
         }

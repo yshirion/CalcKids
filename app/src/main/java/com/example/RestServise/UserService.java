@@ -1,6 +1,8 @@
 package com.example.RestServise;
 
 import com.example.objects.User;
+
+import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,7 +19,7 @@ public interface UserService {
 
     //for message
     @GET("user/parent/{fid}")
-    Call<User> getParent(@Path("fid") long fid);
+    Call<ArrayList<User>> getParent(@Path("fid") long fid);
 
     //get all children for menu of parent and send message
     @GET("user/family/{id}")

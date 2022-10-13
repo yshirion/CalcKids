@@ -7,18 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentStart="false"
-    android:layout_alignParentLeft="false"
     android:layout_alignParentTop="false"
     android:layout_alignParentEnd="false"
-    android:layout_alignParentRight="false"
     android:layout_alignParentBottom="false"
     android:layout_centerVertical="false"
     android:background="@drawable/mainpage1"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
+    android:paddingStart="16dp"
     android:paddingTop="16dp"
-    android:paddingRight="16dp"
+    android:paddingEnd="16dp"
     android:paddingBottom="16dp">
 
     <ImageView
@@ -42,7 +40,7 @@
         android:layout_marginTop="180dp"
         android:layout_marginEnd="33dp"
         android:fontFamily="More Fonts..."
-        android:text="Welcome"
+        android:text="@string/startwelcome"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#014D70"
@@ -66,23 +64,16 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-
-<!--        android:layout_width="281dp"-->
-<!--        android:layout_height="413dp"-->
-<!--        android:orientation="vertical"-->
-<!--        tools:layout_editor_absoluteX="16dp"-->
-<!--        tools:layout_editor_absoluteY="16dp">-->
-
-
         <EditText
             android:id="@+id/mainUser"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:ems="10"
             android:hint="@string/user_name"
+            android:gravity="left"
             android:inputType="textPersonName"
-            android:selectAllOnFocus="true"
             android:singleLine="true"
+
             android:textColorHint="@color/white"/>
 
         <EditText
@@ -90,8 +81,9 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:gravity="left"
             android:hint="@string/password"
+            android:singleLine="true"
+            android:gravity="start"
             android:inputType="textPassword"
             android:textColorHint="@color/white"/>
 
@@ -116,7 +108,7 @@
         android:layout_marginEnd="115dp"
         android:background="#00EFEBEB"
         android:backgroundTint="#00FFFFFF"
-        android:text="New user? try one from below:"
+        android:text="@string/new_user_try_one_from_below"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#FAF7F7"
@@ -136,7 +128,7 @@
         android:layout_marginEnd="115dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00F8F6F6"
-        android:text="Join to exist family"
+        android:text="@string/join_to_exist_family"
         android:textAlignment="viewStart"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -154,7 +146,7 @@
         android:layout_marginEnd="165dp"
         android:background="#02FFFFFF"
         android:backgroundTint="#00F8F6F6"
-        android:text="Create new family"
+        android:text="@string/create_new_family"
         android:textAlignment="viewStart"
         android:textSize="11sp"
         android:textStyle="bold"

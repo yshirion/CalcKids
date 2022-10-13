@@ -108,14 +108,17 @@ public class ChildMenu extends AppCompatActivity {
     private void defineParent(MenuCard mc) {
         app.userService
                 .getParent(app.currentChildUser.getFamily_id())
-                .enqueue(new Callback<User>() {
+                .enqueue(new Callback<ArrayList<User>>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<ArrayList<User>> call, Response<ArrayList<User>> response) {
                         //If the server find the parent load him in array list
                         // to move to message activity fo the destination of message.
                         if (response.isSuccessful()) {
                             ArrayList<User> array = new ArrayList<User>();
-                            array.add(response.body());
+                            for (User parent : response.body())
+                            {
+                                array.add(parent);
+                            }
                             Intent intent = new Intent(ChildMenu.this, mc.getActivity());
                             intent.putExtra("childrenList", array);
                             startActivity(intent);
@@ -128,7 +131,7 @@ public class ChildMenu extends AppCompatActivity {
                         }
                     }
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<ArrayList<User>> call, Throwable t) {
                         Toast.makeText(
                                 getApplicationContext(),
                                 getString(R.string.networkerror),
